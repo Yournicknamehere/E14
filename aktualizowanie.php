@@ -18,7 +18,7 @@
             //Tworzy połączenie z bazą danych
             $connection = new mysqli('localhost', 'root', '', 'cd4ti');
             if ($connection->connect_error){
-                die("Błąd połączenia: " . $connection->connect_error);
+                die("Błąd połączenia: " . $connection->connect_error ."<br>");
             }
         ?>
            
