@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/CSS/style.css">
     <script src="/JS/main.js"></script>
-    <title>Dodano</title>
+    <title>Klienci</title>
 </head>
 <body>
     <div class="header">
