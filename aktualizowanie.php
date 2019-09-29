@@ -15,7 +15,7 @@
 
     <div class="content">
        <?php
-            //tworzy połączenie z bazą danych
+            //Tworzy połączenie z bazą danych
             $connection = new mysqli('localhost', 'root', '', 'cd4ti');
             if ($connection->connect_error){
                 die("Błąd połączenia: " . $connection->connect_error);
@@ -26,18 +26,25 @@
             <input type="text" name="noweDane" placeholder="Tutaj wpisz nowe dane" class="formInput"/><br>
             Wybierz klienta, którego dane chcesz zmienić<br>
             <?php
+                //Zapisuje do zmiennej '$z' wynik zapytania SQL do bazy danych
                 $z = $connection->query("SELECT nazwa FROM klienci;");
-                
-                echo "<select name='jakiKlient'>";
+
+                //Tworzy listę rozwijaną <select> w HTML używając tablicy asocjacyjnej $r i pętli while()
+                echo "<select name='jakiKlient'>"; //Otwiera znacznik <select>...
                 while($r = $z->fetch_assoc()){
+                    //Każde przejście pętli dodaje kolejną pozycję listy
                     echo "<option>" .$r['nazwa']  ."</option>";
                 }
-                echo "</select>" ."<br><br>";
+                echo "</select>" ."<br><br>"; //... i zamyka znacznik </select>
 
+                //Zwalnia pamięć przeznaczoną na tablicę
                 $z->free();
+                //Zamyka połączenie z bazą danych
                 $connection->close();
             ?>
+
             oraz dane, które chcesz zmienić<br>
+            <!-- To zrobiłem ręcznie bo nie wiem jeszcze jak pobrać strukture tabeli z bazy danych XD -->
             <select name="jakieDane">
                 <option>nazwa</option>
                 <option>adres</option>
@@ -52,6 +59,5 @@
         <button class="formInputBtn"><a href ="<?php echo $_SERVER['HTTP_REFERER'];?>">Cofnij</a></button>
     </div>
         
-    
 </body>
 </html>

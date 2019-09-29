@@ -15,25 +15,25 @@
 
     <div class="content">
        <?php
-            //tworzy połączenie z bazą danych
+            //Tworzy połączenie z bazą danych
             $connection = new mysqli('localhost', 'root', '', 'cd4ti');
             if ($connection->connect_error){
                 die("Błąd połączenia: " . $connection->connect_error);
             }
 
-            //zapytanie do bazy danych
+            //Zapytanie do bazy danych
             $z = $connection->query("SELECT nazwa, adres, miasto, kraj FROM klienci;");
 
-            //tworzy rablice asocjacyjna '$r' i zapisuje do niej wynik zapytania ORAZ wyświetla dane
+            //Tworzy rablice asocjacyjna '$r' i zapisuje do niej wynik zapytania ORAZ wyświetla dane
             while($r = $z->fetch_assoc()){
                 echo "<b>Nazwa: </b>" .$r['nazwa'] ."<br>"  ."<b>Adres: </b>"  .$r['adres']  ."<br>"  ."<b>Miasto: </b>" .$r['miasto'] ."<br>" ."<b>Kraj: </b>" .$r['kraj'] ."<br>";
                 echo "<br><br>";
             }
 
-            //zwalnia pamięć
+            //Zwalnia pamięć
             $z->free();
 
-            //zamyka połączenie z bazą
+            //Zamyka połączenie z bazą
             $connection->close();
         ?>
         <!-- Cofnięcie do poprzedniej strony używając PHP -->
