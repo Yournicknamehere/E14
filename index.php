@@ -8,7 +8,7 @@
     <script src="/JS/main.js"></script>
     <title>Strona Główna</title>
 </head>
-<body onload="zegarek()">
+<body>
     <div class="header">
         <h1>Menu</h1>
     </div>
@@ -20,8 +20,6 @@
         <button class="menuButton"><a href="wyswietlTabela.php">Tabela klientów</a></button>
         <button class="menuButton"><a href="aktualizowanie.php">Aktualizacja danych</a></button><br>
         <button class="menuButton"><a href="zegarek.html">Zegarek</a></button>
-
-        <p id="zegar"></p>
     </div>
     
 </body>
