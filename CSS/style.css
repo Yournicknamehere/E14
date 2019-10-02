@@ -21,6 +21,7 @@ body {
     width: 100%;
     margin-top: 70px;
     font-size: 25px;
+    text-align: center;
 }
 
 .contentRight {
@@ -90,5 +91,26 @@ a:active {
 
 a:hover {
     text-decoration: none;
+    color: white;
+}
+
+#klienci {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+#klienci td, #klienci th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+  
+#klienci tr:nth-child(even) {background-color: #455A64;}
+
+#klienci th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #263238;
     color: white;
 }
