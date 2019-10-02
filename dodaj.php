@@ -21,12 +21,21 @@
                 die("Błąd połączenia: " . $connection->connect_error);
             }
 
-            //Zapisuje dane z formularza do zmiennych
-            $nazwa = $_POST['nazwa'];
-            $adres = $_POST['adres'];
-            $miasto = $_POST['miasto'];
-            $kraj = $_POST['kraj'];
-            $sql = NULL; 
+            $sql = NULL;
+
+            //Funkcja validująca
+           function testuj($dane) {
+               $dane = trim($dane); //usuwa puste znaki na początku i końcu
+               $dane = stripslashes($dane); //usuwa backslashe
+               $dane = htmlspecialchars($dane); //zamienia znaki specjalne na is odpowiedniki zakodowane w HTML
+           }
+            
+           //Zapisuje dane z formularza do zmiennych po przepuszczeniu przez funckję validującą
+            $nazwa = testuj($_POST['nazwa']);
+            $adres = testuj($_POST['adres']);
+            $miasto = testuj($_POST['miasto']);
+            $kraj = testuj($_POST['kraj']);
+            
 
             //Zapisuje zapytanie SQL do zmiennej
             $sql = "INSERT INTO klienci (nazwa, adres, miasto, kraj)

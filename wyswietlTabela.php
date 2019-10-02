@@ -14,6 +14,7 @@
     </div>
 
     <div class="content">
+    <div class="tabelaKlienci">
        <?php
             //Tworzy połączenie z bazą danych
             $connection = new mysqli('localhost', 'root', '', 'cd4ti');
@@ -40,6 +41,7 @@
         ?>
         <!-- Cofnięcie do poprzedniej strony używając PHP -->
         <button class="formInputBtn"><a href ="<?php echo $_SERVER['HTTP_REFERER'];?>">Cofnij</a></button>
+    </div>
     </div>
     
 </body>
