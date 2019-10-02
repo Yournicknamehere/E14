@@ -35,11 +35,6 @@
             $adres = testuj($_POST['adres']);
             $miasto = testuj($_POST['miasto']);
             $kraj = testuj($_POST['kraj']);
-            
-
-            //Zapisuje zapytanie SQL do zmiennej
-            $sql = "INSERT INTO klienci (nazwa, adres, miasto, kraj)
-            VALUES ('$nazwa', '$adres', '$miasto', '$kraj');";
 
             //Sprawdza czy pole formularza nie są puste
             if(empty($nazwa) || empty($adres) || empty($miasto) || empty($kraj)) {
