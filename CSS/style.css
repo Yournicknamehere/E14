@@ -35,9 +35,25 @@ body {
     border-radius: 25px;
     border: 0;
     margin-bottom: 20px;
-    height: 35px;
+    height: 45px;
+    width: 30%;
     font-size: 25px;
+    background: #263238;
+    color: white;
+    -webkit-transition: width 2.0s ease-in-out;
+    transition: width 2.0s ease-in-out;
+    -moz-transition: width 2.0s ease-in-out;
 }
+
+.formInput:focus {height: 55px;}
+
+.formInput::placeholder {color: white;}
+
+.formInput::-webkit-input-placeholder {color: white;}
+
+.formInput::-moz-placeholder {color: white;}
+
+.formInput:-ms-input-placeholder {color: white;}
 
 .formOutput {font-size: 27px;}
 
@@ -53,17 +69,18 @@ body {
 }
 
 .menuButton {
-    padding: 5px;
+    padding: 10px;
     border-radius: 25px;
     border: 0;
-    margin-top: 100px;
-    margin-right: 50px;
-    height: 90px;
-    width: 150px;
+    margin-top: 30px;
+    margin-right: 40px;
+    margin-left: 40px;
+    margin-bottom: 45px;
+    height: 100px;
+    width: 180px;
     background: #263238;
     color: white;
     font-size: 21px;
-    display: inline-block;
 }
 
 a {
@@ -89,6 +106,17 @@ a:active {
 a:hover {
     text-decoration: none;
     color: white;
+}
+
+select {
+    border: 0;
+    border-radius: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    padding: 5px;
+    background: #263238;
+    color: white;
+    width: 30%;
 }
 
 #klienci {
@@ -118,3 +146,5 @@ a:hover {
     margin-left: 50px;
     margin-right: 50px;
 }
+
+#selectDane {margin-bottom: 70px}

@@ -45,12 +45,12 @@
 
             oraz dane, które chcesz zmienić<br>
             <!-- To zrobiłem ręcznie bo nie wiem jeszcze jak pobrać strukture tabeli z bazy danych XD -->
-            <select name="jakieDane">
+            <select name="jakieDane" id="selectDane">
                 <option>nazwa</option>
                 <option>adres</option>
                 <option>miasto</option>
                 <option>kraj</option>
-            </select><br><br>
+            </select><br>
 
             <input type="submit" name="okDane" value="Aktualizuj" class="formInputBtn"/>
             
