@@ -21,20 +21,13 @@
                 die("Błąd połączenia: " . $connection->connect_error);
             }
 
-            $sql = NULL;
+            //Zapisuje dane z formularza do zmiennych po przepuszczeniu przez funckję validującą
+            $nazwa = $_POST['nazwa'];
+            $adres = $_POST['adres'];
+            $miasto = $_POST['miasto'];
+            $kraj = $_POST['kraj'];
 
-            //Funkcja validująca
-           function testuj($dane) {
-               $dane = trim($dane); //usuwa puste znaki na początku i końcu
-               $dane = stripslashes($dane); //usuwa backslashe
-               $dane = htmlspecialchars($dane); //zamienia znaki specjalne na is odpowiedniki zakodowane w HTML
-           }
-            
-           //Zapisuje dane z formularza do zmiennych po przepuszczeniu przez funckję validującą
-            $nazwa = testuj($_POST['nazwa']);
-            $adres = testuj($_POST['adres']);
-            $miasto = testuj($_POST['miasto']);
-            $kraj = testuj($_POST['kraj']);
+            $sql = ""; //Czyści zmienną przechowującą zapytanie SQL w razie gdyby przechowywała poprzednie zapytanie
 
             //Sprawdza czy pole formularza nie są puste
             if(empty($nazwa) || empty($adres) || empty($miasto) || empty($kraj)) {
@@ -48,8 +41,13 @@
                 //Wykonuje zapytanie SQL (wysyła do bazy danych)...
                 if($connection->query($sql) === TRUE) {
                     //... i wyświetla komunikat jeśli dodano pomyślnie...
-                    echo "<p><b>Pomyślnie dodano klienta</b></p>" ."<br><br>";
-                    echo "<b>Nazwa: </b>" .$nazwa ."<br>" ."<b>Adres: </b>" .$adres ."<br>" ."<b>Miasto: </b>" .$miasto ."<br>" ."<b>Kraj: </b>" .$kraj ."<br><br>";
+                    echo "<h2>Pomyślnie dodano klienta!</h2>";
+                    echo "<div class='tabelaKlienci'>";
+                    echo "<table id='klienci'>";
+                    echo "<tr> <th>Nazwa</th> <th>Adres</th> <th>Miasto</th> <th>Kraj</th> </tr>";
+                    echo "<tr> <td>".$nazwa ."</td> <td>".$adres ."</td> <td>".$miasto ."</td> <td>".$kraj ."</td> </tr>";
+                    echo "</table>";
+                    echo "</div>";
                     //... lub błąd jeśli wystąpił problem
                 }else { echo "Error: " . $sql . "<br>" . $connection->error; }
             }
