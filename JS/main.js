@@ -15,3 +15,18 @@ function zegarek() {
 
     setTimeout('zegarek()', 1000);
 }
+
+//Chwyta wszystkie pola do wpisywania
+var input = document.getElementsByClassName("formInput");
+
+//Wywołuje funkcję zawsze, kiedy zwalniamy klawisz klawiatury
+input.addEventListener("keyup", function(event) {
+    //Enter  ma numer 13 na klawiaturze
+    if (event.keyCode === 13) {
+        //Jeśli Enter ma jakąś domyślną akcję to ją ignoruje
+        event.preventDefault();
+
+        //Klika przycisk wysyłający formularz
+        document.getElementsByName("submitBtn").click();
+    }
+});

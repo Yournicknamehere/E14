@@ -45,7 +45,12 @@ body {
     -moz-transition: width 2.0s ease-in-out;
 }
 
-.formInput:focus {height: 55px;}
+input:focus {outline: none;}
+
+.formInput:focus {
+    height: 55px;
+    outline: none;
+}
 
 .formInput::placeholder {color: white;}
 
@@ -118,6 +123,8 @@ select {
     color: white;
     width: 30%;
 }
+
+select:focus {outline: none;}
 
 #klienci {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;

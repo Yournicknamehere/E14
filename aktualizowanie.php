@@ -23,7 +23,6 @@
         ?>
            
         <form action="aktualizuj.php" method="POST">
-            <input type="text" name="noweDane" placeholder="Tutaj wpisz nowe dane" class="formInput"/><br>
             Wybierz klienta, którego dane chcesz zmienić<br>
             <?php
                 //Zapisuje do zmiennej '$z' wynik zapytania SQL do bazy danych
@@ -52,7 +51,9 @@
                 <option>kraj</option>
             </select><br>
 
-            <input type="submit" name="okDane" value="Aktualizuj" class="formInputBtn"/>
+            <input type="text" name="noweDane" placeholder="A tutaj wpisz nowe dane" class="formInput"/><br>
+
+            <input type="submit" name="submitBtn" value="Aktualizuj" class="formInputBtn"/>
             
         </form>
         <!-- Cofnięcie do poprzedniej strony używając PHP -->

@@ -20,7 +20,7 @@
             <input type="text" name="miasto" class="formInput" placeholder="Miasto"/><br>
             <input type="text" name="kraj" class="formInput" placeholder="Kraj"/><br>
             <br>
-            <input type="submit" name="ok" value="Dodaj" class="formInputBtn"/>
+            <input type="submit" name="submitBtn" value="Dodaj" class="formInputBtn"/>
         </form>
         <!-- Cofnięcie do poprzedniej strony używając PHP -->
         <button class="formInputBtn"><a href ="<?php echo $_SERVER['HTTP_REFERER'];?>">Cofnij</a></button>
