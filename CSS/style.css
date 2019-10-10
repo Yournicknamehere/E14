@@ -1,9 +1,15 @@
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
 body {
     margin: 0;
     background: #455A64;
     color: white;
     font-size: 20px;
     text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .header {
@@ -24,30 +30,19 @@ body {
     text-align: center;
 }
 
-.contentRight {
-    margin-top: 75px; float: right; font-size: 25px; text-align: center;
-}
-
-.contentLeft {
-    margin-top: 75px; float: left; font-size: 25px;
-}
-
-.footer {
-    clear: both;
-}
-
 .formInput {
+    padding: 10px;
+    border-radius: 25px;
     border: 0;
     margin-bottom: 20px;
     height: 35px;
     font-size: 25px;
 }
 
-.formOutput {
-    font-size: 27px;
-}
+.formOutput {font-size: 27px;}
 
 .formInputBtn {
+    border-radius: 25px;
     border: 0;
     margin-bottom: 20px;
     font-size: 25px;
@@ -58,6 +53,8 @@ body {
 }
 
 .menuButton {
+    padding: 5px;
+    border-radius: 25px;
     border: 0;
     margin-top: 100px;
     margin-right: 50px;
