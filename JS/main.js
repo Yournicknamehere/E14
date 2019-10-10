@@ -26,7 +26,7 @@ input.addEventListener("keyup", function(event) {
         //Jeśli Enter ma jakąś domyślną akcję to ją ignoruje
         event.preventDefault();
 
-        //Klika przycisk wysyłający formularz
+        //Klika przycisk wysyłający formularz (input type'button / submit' MUSI MIEĆ NAZWĘ 'submitBtn')
         document.getElementsByName("submitBtn").click();
     }
 });
