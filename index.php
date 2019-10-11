@@ -18,9 +18,10 @@
         <div id="menu">
             <button class="menuButton"><a href="dodawanie.php">Dodawanie klientów</a></button>
             <button class="menuButton"><a href="wyswietlTabela.php">Tabela klientów</a></button>
-            <button class="menuButton"><a href="aktualizowanie.php">Aktualizacja danych</a></button>
+            <button class="menuButton"><a href="aktualizowanie.php">Aktualizacja danych</a></button><br><br>
             <button class="menuButton"><a href="zegarek.html">Zegarek</a></button>
             <button class="menuButton"><a href="usuwanie.php">Usuwanie klientów</a></button>
+            <button class="menuButton"><a href="ukrywanie.html">Ukrywanie banera</a></button>
         </div>
         
     </div>

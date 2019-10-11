@@ -22,6 +22,17 @@ function zegarek() {
     setTimeout('zegarek()', 1000);
 }
 
+function ukryjBanner() {
+    document.getElementById('banner').style.visibility='hidden';
+    alert("Magia!");
+}
+
+function pokazBanner() {
+    var banner = document.getElementsByClassName("header");
+    banner.style.visibility = 'visible';
+    alert("Wrócił :o")
+}
+
 //Chwyta wszystkie pola do wpisywania
 var input = document.getElementsByClassName("formInput");
 

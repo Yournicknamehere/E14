@@ -27,6 +27,7 @@
 
             //Sprawdza czy pola formualrza nie są puste
             if(empty($klient) || empty($noweDane) || empty($jakieDane)) {
+                echo "<script> alert('Nie można zaktualizować danych klienta, ponieważ co najmniej jedno pole formularza nie zostało wypełnione!');</script>";
                 echo "Nie można zaktualizować danych klienta, ponieważ co najmniej jedno pole formularza nie zostało wypełnione!<br>";
             }else{
                 //Zapisuje zapytanie SQL do zmiennej (tylko jeśli poprawnie wypełniono formularz)
