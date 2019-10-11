@@ -20,6 +20,7 @@
             <button class="menuButton"><a href="wyswietlTabela.php">Tabela klientów</a></button>
             <button class="menuButton"><a href="aktualizowanie.php">Aktualizacja danych</a></button>
             <button class="menuButton"><a href="zegarek.html">Zegarek</a></button>
+            <button class="menuButton"><a href="usuwanie.php">Usuwanie klientów</a></button>
         </div>
         
     </div>

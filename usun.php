@@ -15,31 +15,17 @@
 
     <div class="content">
         <?php
-            //Tworzy połączenie z bazą danych
             $connection = new mysqli("localhost", "root", "", "cd4ti");
             if($connection->connect_error){ die("Błąd połączenia: " .$connection->connect_error); }
+            
+            $klient = $_POST['jakiKlient'];
+            $sql = "DELETE FROM klienci WHERE nazwa='$klient';";
 
-            //Zapisuje do zmiennej '$' wynik zapytania SQL
-            $z = $connection->query("SELECT nazwa FROM klienci;");
+            if($connection->query($sql) === TRUE) { echo "<p>Pomyślnie usunięto klienta!</p>"; }
+            else { echo "ERROR: " .$sql ."<br>" .$connection->error ."<br><br>"; }
 
-            echo "<h2>Wybierz nazwę klienta, którego chcesz usunąć</h2>";
-
-            echo "<form action='usun.php' method='POST'>";
-            //Tworzy listę rozwijaną z nazwami klientów
-            echo "<select name='jakiKlient'>";
-            while($r = $z->fetch_assoc()){
-                echo "<option>" .$r['nazwa'] ."</option>";
-            }
-            echo "</select>" ."<br><br>";
-            echo "<input type='submit' name='submitBtn' class='formInputBtn' value='Usuń'/>";
-            echo "</form>";
-
-            //Zwalnia pamięć
-            $z->free();
-
+            //Zamyka połączenie z bazą
             $connection->close();
-
-
         ?>
        
         <!-- Cofnięcie do poprzedniej strony używając PHP -->

@@ -33,7 +33,7 @@
                 $sql = "UPDATE klienci SET $jakieDane = '$noweDane' WHERE nazwa = '$klient';";
 
                 if($connection->query($sql) === TRUE) { echo "<p>Pomyślnie zaktualizowano dane</p>"; }
-                else { echo "ERRORL " .$sql ."<br>" .$connection->error; }
+                else { echo "ERROR: " .$sql ."<br>" .$connection->error; }
             }
             
             //Zamyka połączenie z bazą
