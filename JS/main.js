@@ -1,18 +1,24 @@
 function zegarek() {
+    //Tworzy obiekt 'data'
     var data = new Date();
 
+    //Pobiera godziny, minuty i sekundy
     var godziny = data.getHours();
     var minuty = data.getMinutes();
     var sekundy = data.getSeconds(); 
     
+    //Chwyta <p>, w którym wyświetlany będzie czas
     var output = document.getElementById("zegar");
 
+    //Jeśli godziny, minuty lub sekundy mają wartość 1-cyfrową -> dodaje 0 na początku
     if(godziny < 10) { godziny = "0" + godziny; }
     if(minuty < 10) { minuty = "0" + minuty; }
     if(sekundy < 10) { sekundy = "0" + sekundy; }
 
+    //Wyświetla czas
     output.innerHTML = godziny + ":" + minuty + ":" + sekundy;
 
+    //"Odświeża" funkcję co 1000ms (1s) czyli wszystkie powyższe kroki wykonują się ponownie
     setTimeout('zegarek()', 1000);
 }
 

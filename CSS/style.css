@@ -154,4 +154,11 @@ select:focus {outline: none;}
     margin-right: 50px;
 }
 
+#menu {
+    text-align: center;
+    position: relative;
+    margin-left: 20%;
+    vertical-align: auto;
+}
+
 #selectDane {margin-bottom: 70px}

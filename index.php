@@ -15,13 +15,19 @@
 
     <div class="content">
         <h2>Wybierz pozycję z menu</h2>
-        <div class="menu">
-            <button class="menuButton"><a href="dodawanie.php">Dodawanie klientów</a></button>
-            <button class="menuButton"><a href="wyswietlTabela.php">Tabela klientów</a></button>
-            <button class="menuButton"><a href="aktualizowanie.php">Aktualizacja danych</a></button><br>
-            <button class="menuButton"><a href="zegarek.html">Zegarek</a></button>
+        <div id="menu">
+            <table>
+                <tr>
+                    <!-- Fuszerka i januszostwo ale wkurwiłem się i zrobiłem tak XD (działa) -->
+                    <td> <button class="menuButton"><a href="dodawanie.php">Dodawanie klientów</a></button> </td>
+                    <td> <button class="menuButton"><a href="wyswietlTabela.php">Tabela klientów</a></button> </td>
+                    <td> <button class="menuButton"><a href="aktualizowanie.php">Aktualizacja danych</a></button> </td>
+                    <td> <button class="menuButton"><a href="zegarek.html">Zegarek</a></button> </td>
+                </tr>
+            </table>
+
         </div>
+        
     </div>
-    
 </body>
 </html>
