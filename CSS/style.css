@@ -18,9 +18,9 @@ body {
     position: sticky;
     position: -webkit-sticky;
     top: 0; 
-    height: 20%;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .content {
@@ -155,8 +155,7 @@ select:focus {outline: none;}
 
 #menu {
     text-align: center;
-    position: relative;
-    margin-left: 20%;
+    margin: auto;
     vertical-align: auto;
 }
 
