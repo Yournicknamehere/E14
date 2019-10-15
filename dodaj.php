@@ -22,10 +22,10 @@
             }
 
             //Zapisuje dane z formularza do zmiennych po przepuszczeniu przez funckję validującą
-            $nazwa = $_POST['nazwa'];
-            $adres = $_POST['adres'];
-            $miasto = $_POST['miasto'];
-            $kraj = $_POST['kraj'];
+            $nazwa = trim($_POST['nazwa']);
+            $adres = trim($_POST['adres']);
+            $miasto = trim($_POST['miasto']);
+            $kraj = trim($_POST['kraj']);
 
             $sql = ""; //Czyści zmienną przechowującą zapytanie SQL w razie gdyby przechowywała poprzednie zapytanie
 
