@@ -9,10 +9,8 @@
     <title>Struktura tabeli</title>
 </head>
 <body>
-    <!-- Pobieram nazwę tabeli już tutaj, żeby wyświetlić jej nazwę w headerze -->
-    <?php $tabela = $_POST['jakaTabela']; ?>
     <div class="header">
-        <?php echo "<h1>Struktura tabeli " .$tabela ."</h1>"; ?>
+        <h1>Struktura tabeli</h1>
     </div>
 
     <div class="content">
@@ -23,16 +21,18 @@
                 die("Błąd połączenia: " . $connection->connect_error);
             }
 
-            
-
-            $result = $connection->query("DESCRIBE $tabela;");
-            echo "<table id='klienci'>";
-            echo "<tr> <th>Field</th> <th>Type</th> </tr>";
+            echo "<p>Wybierz tabelę, której struktórę chcesz wyświetlić</p>";
+            $result = $connection->query("SHOW tables;");
+            echo "<form action='wyswietlDescribe.php' method='POST'>";
+            echo "<select name='jakaTabela'>";
             while($obj = $result->fetch_object()) {
-                echo "<tr><td>" .$obj->Field  ."</td> <td>" .$obj->Type ."</td>  </tr>";
+                echo "<option>" .$obj->Tables_in_cd4ti  ."</option>";
             }
-            echo "</table><br>";
-            
+            echo "</select><br><br>";
+            echo "<input type='submit' name='submitBtn' value='Wybierz' class='formInputBtn'/><br>";
+            echo "</form>";
+
+            //Zwalnianie pamięci
             $result->free();
 
 
@@ -40,9 +40,9 @@
             $connection->close();
         ?>
         <!-- Cofnięcie do poprzedniej strony używając PHP -->
-        <button class="formInputBtn"><a href ="<?php echo $_SERVER['HTTP_REFERER'];?>">Cofnij</a></button>
+        <button class="formInputBtn"><a href ="index.php">Cofnij</a></button>
     </div>
     </div>
-    
+
 </body>
 </html>
