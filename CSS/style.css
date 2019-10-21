@@ -126,21 +126,21 @@ select {
 
 select:focus {outline: none;}
 
-#klienci {
+#tabela {
     border-collapse: collapse;
     width: 100%;
 }
   
-#klienci td, #klienci th {
+#tabela td, #tabela th {
     border: 1px solid #ddd;
     padding: 8px;
 }
   
-#klienci tr:nth-child(even) {background-color: #455A64;}
+#tabela tr:nth-child(even) {background-color: #455A64;}
 
-#klienci tr:hover {background-color: #263238}
+#tabela tr:hover {background-color: #263238}
 
-#klienci th {
+#tabela th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
@@ -148,7 +148,7 @@ select:focus {outline: none;}
     color: white;
 }
 
-.tabelaKlienci {
+.tabela {
     margin-left: 50px;
     margin-right: 50px;
 }
@@ -160,3 +160,15 @@ select:focus {outline: none;}
 }
 
 #selectDane {margin-bottom: 70px}
+
+#zegar {
+    font-size: 72px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #263238;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-weight: bold;
+}

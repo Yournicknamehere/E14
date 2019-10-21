@@ -28,9 +28,8 @@ function ukryjBanner() {
 }
 
 function pokazBanner() {
-    var banner = document.getElementsByClassName("header");
-    banner.style.visibility = 'visible';
-    alert("Wrócił :o")
+    document.getElementById('banner').style.visibility = 'visible';
+    alert("I cyk!");
 }
 
 //Chwyta wszystkie pola do wpisywania

@@ -14,7 +14,7 @@
     </div>
 
     <div class="content">
-    <div class="tabelaKlienci">
+    <div class="tabela">
        <?php
             //Tworzy połączenie z bazą danych
             $connection = new mysqli('localhost', 'root', '', 'cd4ti');
@@ -26,7 +26,7 @@
             $z = $connection->query("SELECT nazwa, adres, miasto, kraj FROM klienci;");
 
             //Tworzy rablice asocjacyjna '$r' i zapisuje do niej wynik zapytania ORAZ wyświetla dane
-            echo "<table id='klienci'>";
+            echo "<table id='tabela'>";
             echo "<tr> <th>Nazwa</th> <th>Adres</th> <th>Miasto</th> <th>Kraj</th> </tr>";
             while($r = $z->fetch_assoc()){
                 echo "<tr> <td>" .$r['nazwa'] ."</td> <td>" .$r['adres'] ."</td> <td>" .$r['miasto'] ."</td> <td>" .$r['kraj'] ."</td> </tr>";

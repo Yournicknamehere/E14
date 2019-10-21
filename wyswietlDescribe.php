@@ -16,7 +16,7 @@
     </div>
 
     <div class="content">
-    <div class="tabelaKlienci">
+    <div class="tabela">
        <?php
             $connection = new mysqli('localhost', 'root', '', 'cd4ti');
             if ($connection->connect_error){
@@ -26,7 +26,7 @@
             
 
             $result = $connection->query("DESCRIBE $tabela;");
-            echo "<table id='klienci'>";
+            echo "<table id='tabela'>";
             echo "<tr> <th>Field</th> <th>Type</th> </tr>";
             while($obj = $result->fetch_object()) {
                 echo "<tr><td>" .$obj->Field  ."</td> <td>" .$obj->Type ."</td>  </tr>";

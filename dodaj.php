@@ -42,8 +42,8 @@
                 if($connection->query($sql) === TRUE) {
                     //... i wyświetla komunikat jeśli dodano pomyślnie...
                     echo "<h2>Pomyślnie dodano klienta!</h2>";
-                    echo "<div class='tabelaKlienci'>";
-                    echo "<table id='klienci'>";
+                    echo "<div class='tabela'>";
+                    echo "<table id='tabela'>";
                     echo "<tr> <th>Nazwa</th> <th>Adres</th> <th>Miasto</th> <th>Kraj</th> </tr>";
                     echo "<tr> <td>".$nazwa ."</td> <td>".$adres ."</td> <td>".$miasto ."</td> <td>".$kraj ."</td> </tr>";
                     echo "</table>";
