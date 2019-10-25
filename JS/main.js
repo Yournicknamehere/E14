@@ -32,6 +32,21 @@ function pokazBanner() {
     alert("I cyk!");
 }
 
+
+var kolor;
+function zmienKolor(kolor) {
+    alert(kolor);
+    if(kolor == 'zielony') {
+        document.getElementById('banner').style.background="#1B5E20";
+        document.body.style.background="#388E3C";
+
+    }
+    else if(kolor == 'niebieski') {
+        document.getElementById('banner').style.background="#0D47A1";
+        document.body.style.background="#1976D2";
+    }
+}
+
 //Chwyta wszystkie pola do wpisywania
 var input = document.getElementsByClassName("formInput");
 
