@@ -21,7 +21,7 @@
             <button class="menuButton"><a href="aktualizowanie.php">Aktualizacja danych</a></button><br><br>
             <button class="menuButton"><a href="zegarek.html">Zegarek</a></button>
             <button class="menuButton"><a href="usuwanie.php">Usuwanie klientów</a></button>
-            <button class="menuButton"><a href="ukrywanie.html">Ukrywanie banera</a></button><br><br>
+            <button class="menuButton"><a href="zmianaStylu.html">Zmiana CSS</a></button><br><br>
             <button class="menuButton"><a href="wyswietlanieDescribe.php">Struktura tabeli</a></button>
             <button class="menuButton"><a href="rejestrowanie.php">Rejestracja</a></button>
             <button class="menuButton"><a href="logowanie.php">Logowanie</a></button><br><br>
