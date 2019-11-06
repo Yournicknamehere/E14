@@ -1,0 +1,20 @@
+{
+    "editor.minimap.enabled": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "window.menuBarVisibility": "toggle",
+    "php.validate.executablePath": "C:\\xampp\\php\\php.exe",
+    "editor.fontSize": 16,
+    "html-css-class-completion.includeGlobPattern": "**/*.{css,html,php}",
+
+    "sqltools.connections": [
+        {
+            "askForPassword": false,
+            "database": "cd4ti",
+            "dialect": "MySQL",
+            "name": "LocalDB",
+            "port": 3306,
+            "server": "localhost",
+            "username": "root"
+        }
+    ]
+}
