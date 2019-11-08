@@ -16,15 +16,22 @@
     <div class="content">
         <h2>Wybierz pozycję z menu</h2>
         <div id="menu">
-            <button class="menuButton"><a href="dodawanie.php">Dodawanie klientów</a></button>
-            <button class="menuButton"><a href="wyswietlTabela.php">Tabela klientów</a></button>
-            <button class="menuButton"><a href="aktualizowanie.php">Aktualizacja danych</a></button><br><br>
-            <button class="menuButton"><a href="zegarek.html">Zegarek</a></button>
-            <button class="menuButton"><a href="usuwanie.php">Usuwanie klientów</a></button>
-            <button class="menuButton"><a href="zmianaStylu.html">Zmiana CSS</a></button><br><br>
-            <button class="menuButton"><a href="wyswietlanieDescribe.php">Struktura tabeli</a></button>
-            <button class="menuButton"><a href="rejestrowanie.php">Rejestracja</a></button>
-            <button class="menuButton"><a href="logowanie.php">Logowanie</a></button><br><br>
+            <p>
+                <button class="menuButton" onclick="przekieruj('dodawanie.php')">Dodawanie klientów</button>
+                <button class="menuButton" onclick="przekieruj('usuwanie.php')">Usuwanie klientów</button>
+                <button class="menuButton" onclick="przekieruj('aktualizowanie.php')">Aktualizowanie danych</button>
+            </p>
+            <p>
+                <button class="menuButton" onclick="przekieruj('wyswietlTabela.php')">Tabela klientów</button>
+                <button class="menuButton" onclick="przekieruj('wyswietlanieDescribe.php')">Struktura tabeli</button>
+                <button class="menuButton" onclick="przekieruj('rejestrowanie.php')">Rejestracja</button>
+            </p>
+            <p>
+                <button class="menuButton" onclick="przekieruj('logowanie.php')">Logowanie</button>
+                <button class="menuButton" onclick="przekieruj('zegarek.html')">Zegarek</button>
+                <button class="menuButton" onclick="przekieruj('zmianaStylu.html')">Edytowanie CSS</button>
+            </p>
+
         </div>
         
     </div>

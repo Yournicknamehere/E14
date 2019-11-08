@@ -24,18 +24,13 @@ function zegarek() {
 
 function ukryjBanner() {
     document.getElementById('banner').style.visibility='hidden';
-    alert("Magia!");
 }
 
 function pokazBanner() {
     document.getElementById('banner').style.visibility = 'visible';
-    alert("I cyk!");
 }
 
-
-var kolor;
 function zmienKolor(kolor) {
-    alert(kolor);
     if(kolor == 'zielony') {
         document.getElementById('banner').style.background="#1B5E20";
         document.body.style.background="#388E3C";
@@ -61,3 +56,8 @@ input.addEventListener("keyup", function(event) {
         document.getElementsByName("submitBtn").click();
     }
 });
+
+var strona;
+function przekieruj(strona) {
+    window.location.href = strona;
+}
