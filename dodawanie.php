@@ -9,7 +9,7 @@
     <title>Dodawanie klientów</title>
 </head>
 <body>
-    <div class="header">
+    <div class="header" id="header">
         <h1>Dodawanie klientów do bazy</h1>
     </div>
 

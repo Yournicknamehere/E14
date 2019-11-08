@@ -17,10 +17,11 @@ body {
     width: 100%;
     position: sticky;
     position: -webkit-sticky;
-    top: 0; 
-    
     padding-top: 10px;
     padding-bottom: 10px;
+    top: 0; 
+    transition: 0.2s;
+    font-size: 19px;
 }
 
 .content {

@@ -9,7 +9,7 @@
     <title>Dodano</title>
 </head>
 <body>
-    <div class="header">
+    <div class="header" id="header">
         <h1>Dodano klienta</h1>
     </div>
 

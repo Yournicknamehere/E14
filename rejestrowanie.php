@@ -9,7 +9,7 @@
     <title>Rejestracja</title>
 </head>
 <body>
-    <div class="header">
+    <div class="header" id="header">
         <h1>Rejestracja użytkownika</h1>
     </div>
 

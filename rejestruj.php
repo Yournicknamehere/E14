@@ -9,7 +9,7 @@
     <title>Zarejestrowano</title>
 </head>
 <body>
-    <div class="header">
+    <div class="header" id="header">
         <h1>Pomyślnie dodano użytkownika do bazy!</h1>
     </div>
 

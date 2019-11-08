@@ -23,21 +23,21 @@ function zegarek() {
 }
 
 function ukryjBanner() {
-    document.getElementById('banner').style.visibility='hidden';
+    document.getElementById('header').style.visibility='hidden';
 }
 
 function pokazBanner() {
-    document.getElementById('banner').style.visibility = 'visible';
+    document.getElementById('header').style.visibility = 'visible';
 }
 
 function zmienKolor(kolor) {
     if(kolor == 'zielony') {
-        document.getElementById('banner').style.background="#1B5E20";
+        document.getElementById('header').style.background="#1B5E20";
         document.body.style.background="#388E3C";
 
     }
     else if(kolor == 'niebieski') {
-        document.getElementById('banner').style.background="#0D47A1";
+        document.getElementById('header').style.background="#0D47A1";
         document.body.style.background="#1976D2";
     }
 }

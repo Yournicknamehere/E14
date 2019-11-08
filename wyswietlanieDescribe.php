@@ -9,7 +9,7 @@
     <title>Struktura tabeli</title>
 </head>
 <body>
-    <div class="header">
+    <div class="header" id="header">
         <h1>Struktura tabeli</h1>
     </div>
 

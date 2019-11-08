@@ -9,7 +9,7 @@
     <title>Usuwanie</title>
 </head>
 <body>
-    <div class="header">
+    <div class="header" id="header">
         <h1>Usuwanie klientów</h1>
     </div>
 

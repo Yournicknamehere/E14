@@ -9,7 +9,7 @@
     <title>Aktualizacja</title>
 </head>
 <body style="font-size: 16px;">
-    <div class="header">
+    <div class="header" id="header">
         <h1>Aktualizacja danych klienta</h1>
     </div>
 

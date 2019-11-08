@@ -9,7 +9,7 @@
     <title>Strona Główna</title>
 </head>
 <body>
-    <div class="header">
+    <div class="header" id="header">
         <h1>Menu</h1>
     </div>
 

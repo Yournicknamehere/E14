@@ -11,7 +11,7 @@
 <body>
     <!-- Pobieram nazwę tabeli już tutaj, żeby wyświetlić jej nazwę w headerze -->
     <?php $tabela = $_POST['jakaTabela']; ?>
-    <div class="header">
+    <div class="header" id="header">
         <?php echo "<h1>Struktura tabeli " .$tabela ."</h1>"; ?>
     </div>
 

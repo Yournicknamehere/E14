@@ -9,7 +9,7 @@
     <title>Logowanie</title>
 </head>
 <body>
-    <div class="header">
+    <div class="header" id="header">
         <h1>Logowanie</h1>
     </div>
 
