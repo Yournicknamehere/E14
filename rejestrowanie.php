@@ -45,7 +45,7 @@
                     else {
                         $haslo = md5($haslo1, false);
                         $sql = "INSERT INTO uzytkownicy (login, haslo, stanowisko) VALUES ('$login', '$haslo', '$stanowisko');";
-                        if($connection->query($sql) === true){ echo "<script> alert('Pomyślnie dodano użytkownika'); </script>"; }
+                        if($connection->query($sql) === true){ echo "<script> alert('Pomyślnie dodano użytkownika: $login'); </script>"; }
                         else { echo "<script> alert('ERROR: $connection->error'); </script>"; }
                     }
                 }
