@@ -17,31 +17,26 @@
        <?php
             //Tworzy połączenie z bazą danych
             $connection = new mysqli('localhost', 'root', '', 'cd4ti');
-            if ($connection->connect_error){
-                die("Błąd połączenia: " . $connection->connect_error ."<br>");
-            }
+            if ($connection->connect_error){ die("Błąd połączenia: " . $connection->connect_error ."<br>"); }
         ?>
            
-        <form action="aktualizuj.php" method="POST">
+        <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST">
             Wybierz klienta, którego dane chcesz zmienić<br>
             <?php
                 //Zapisuje do zmiennej '$z' wynik zapytania SQL do bazy danych
-                $z = $connection->query("SELECT nazwa FROM klienci;");
+                $result = $connection->query("SELECT nazwa FROM klienci;");
 
                 //Tworzy listę rozwijaną <select> w HTML używając tablicy asocjacyjnej $r i pętli while()
                 echo "<select name='jakiKlient'>"; //Otwiera znacznik <select>...
-                while($r = $z->fetch_assoc()){
+                while($tab = $result->fetch_assoc()){
                     //Każde przejście pętli dodaje kolejną pozycję listy
-                    echo "<option>" .$r['nazwa']  ."</option>";
+                    echo "<option>" .$tab['nazwa']  ."</option>";
                 }
                 echo "</select>" ."<br><br>"; //... i zamyka znacznik </select>
 
                 //Zwalnia pamięć przeznaczoną na tablicę
-                $z->free();
-                //Zamyka połączenie z bazą danych
-                $connection->close();
+                $result->free();
             ?>
-
             oraz dane, które chcesz zmienić<br>
             <!-- To zrobiłem ręcznie bo nie wiem jeszcze jak pobrać strukture tabeli z bazy danych XD -->
             <select name="jakieDane" id="selectDane">
@@ -52,12 +47,29 @@
             </select><br>
 
             <input type="text" name="noweDane" placeholder="A tutaj wpisz nowe dane" class="formInput"/><br>
-
-            <input type="submit" name="submitBtn" value="Aktualizuj" class="formInputBtn"/>
+            <input type="submit" name="submitAktualizuj" value="Aktualizuj" class="formInputBtn"/>
             
         </form>
+
+        <?php 
+            if(isset($_POST['submitAktualizuj'])){
+                $klient = $_POST['jakiKlient'];
+                $noweDane = trim($_POST['noweDane']);
+                $jakieDane = $_POST['jakieDane'];
+
+                if(empty($klient) || empty($noweDane) || empty($jakieDane)){
+                    echo "<script> alert('Nie można zaktualizować danych, ponieważ co najmniej jedno pole nie zostało uzupełnione!'); </script>";
+                }else{
+                    $sql = "UPDATE klienci SET $jakieDane = '$noweDane' WHERE nazwa = '$klient';";
+
+                    if($connection->query($sql) === true) { echo "<script> alert('Pomyślnie zaktualizowano dane: $klient'); </script>"; }
+                    else { echo "ERROR: " .$sql ."<br>" .$connection->error; }
+                }
+                $connection->close();
+            }
+        ?>
         <!-- Cofnięcie do poprzedniej strony używając PHP -->
-        <button class="formInputBtn" id="confnijBtn"><a href ="<?php echo $_SERVER['HTTP_REFERER'];?>">Cofnij</a></button>
+        <button class="formInputBtn" id="confnijBtn"><a href ="index.php">Cofnij</a></button>
     </div>
         
 </body>
