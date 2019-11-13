@@ -18,23 +18,21 @@
        <?php
             //Tworzy połączenie z bazą danych
             $connection = new mysqli('localhost', 'root', '', 'cd4ti');
-            if ($connection->connect_error){
-                die("Błąd połączenia: " . $connection->connect_error);
-            }
+            if ($connection->connect_error){ die("Błąd połączenia: " . $connection->connect_error); }
 
             //Zapytanie do bazy danych
-            $z = $connection->query("SELECT nazwa, adres, miasto, kraj FROM klienci;");
+            $result = $connection->query("SELECT nazwa, adres, miasto, kraj FROM klienci;");
 
-            //Tworzy rablice asocjacyjna '$r' i zapisuje do niej wynik zapytania ORAZ wyświetla dane
+            //Tworzy rablice asocjacyjna '$tab' i zapisuje do niej wynik zapytania ORAZ wyświetla dane
             echo "<table id='tabela'>";
             echo "<tr> <th>Nazwa</th> <th>Adres</th> <th>Miasto</th> <th>Kraj</th> </tr>";
-            while($r = $z->fetch_assoc()){
-                echo "<tr> <td>" .$r['nazwa'] ."</td> <td>" .$r['adres'] ."</td> <td>" .$r['miasto'] ."</td> <td>" .$r['kraj'] ."</td> </tr>";
+            while($tab = $result->fetch_assoc()){
+                echo "<tr> <td>" .$tab['nazwa'] ."</td> <td>" .$tab['adres'] ."</td> <td>" .$tab['miasto'] ."</td> <td>" .$tab['kraj'] ."</td> </tr>";
             }
             echo "</table><br>";
 
             //Zwalnia pamięć
-            $z->free();
+            $result->free();
 
             //Zamyka połączenie z bazą
             $connection->close();
