@@ -25,42 +25,44 @@
             $loginFormularz = trim($_POST['login']);
             $hasloFormularz = trim($_POST['haslo']);
             $hasloFormularz = md5($hasloFormularz, FALSE);
-            $sql = "SELECT login, haslo FROM uzytkownicy WHERE login = '$loginFormularz';";
+            $sql = "SELECT login, haslo, stanowisko FROM uzytkownicy WHERE login = '$loginFormularz';";
 
 
             $result = $connection->query($sql);
-            if($result == TRUE) {
+            if($result == true) {
                 $obj = $result->fetch_object();
                 $loginUzytkownika = $obj->login;
                 $hasloUzytkownika = $obj->haslo;
+                $stanowisko = $obj->stanowisko;
 
                 if($loginFormularz === $loginUzytkownika && $hasloFormularz === $hasloUzytkownika) {
-                    echo "<h3>Witaj " .$loginUzytkownika ."!</h3><br>";
+                    echo "<p id='zegar'>Witaj " .$loginUzytkownika ."!</p><br>";
                 }else {
-                    echo "<p>Błędny login lub hasło!</p><br>";
+                    echo "<script> alert('Błędny login lub hasło!'); </script>";
                 }
 
             }else {
-                echo "<p>Nie ma takiego użytkownika</p><br>";
+                echo "<script> alert('Nie ma takiego użytkownika!'); </script>";
             }
 
-            //Czyści zmienne
-            $result->free();
-
-            //Zamyka połączenie z bazą
-            $connection->close();
         ?>
         <div class="profil">
             <div class="card">
                 <img src="/img/img_avatar.png" alt="Avatar" style="width:100%">
                 <div class="container">
                     <h4><b><?php echo $loginUzytkownika; ?></b></h4>
-                    <p>Architect & Engineer</p>
+                    <p><?php echo $stanowisko; ?></p>
                 </div>
             </div>
         </div>
         
+        <?php
+            //Czyści zmienne
+            $result->free();
 
+            //Zamyka połączenie z bazą
+            $connection->close();
+        ?>
         <!-- Powrót do strony głównej -->
         <button class="formInputBtn" id="confnijBtn"><a href ="index.php">Cofnij</a></button>
     </div>
