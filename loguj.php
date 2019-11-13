@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -37,6 +40,7 @@
 
                 if($loginFormularz === $loginUzytkownika && $hasloFormularz === $hasloUzytkownika) {
                     echo "<p id='zegar'>Witaj " .$loginUzytkownika ."!</p><br>";
+                    $_SESSION['username'] = $loginUzytkownika;
                 }else {
                     echo "<script> alert('Błędny login lub hasło!'); </script>";
                 }
