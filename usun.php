@@ -29,7 +29,7 @@
         ?>
        
         <!-- Cofnięcie do poprzedniej strony używając PHP -->
-        <button class="formInputBtn"><a href ="index.php">Cofnij</a></button>
+        <button class="formInputBtn" id="confnijBtn"><a href ="index.php">Cofnij</a></button>
     </div>
     
 </body>
