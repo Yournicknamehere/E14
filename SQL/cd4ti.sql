@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 13 Lis 2019, 12:48
+-- Czas generowania: 13 Lis 2019, 13:12
 -- Wersja serwera: 10.4.6-MariaDB
 -- Wersja PHP: 7.2.21
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 -- Struktura tabeli dla tabeli `klienci`
 --
 -- Utworzenie: 13 Lis 2019, 11:46
--- Ostatnia aktualizacja: 13 Lis 2019, 11:42
+-- Ostatnia aktualizacja: 13 Lis 2019, 12:04
 --
 
 CREATE TABLE `klienci` (
@@ -44,7 +44,7 @@ CREATE TABLE `klienci` (
 --
 
 INSERT INTO `klienci` (`id`, `nazwa`, `adres`, `miasto`, `kraj`) VALUES
-(1, 'Around the Horn', '120 Hanover Sq.', 'London', 'UK'),
+(1, 'Around the Horn', 'Analinvasion St. 69', 'London', 'UK'),
 (2, 'Bottom-Dollar Marketse', '23 Tsawassen Blvd.', 'Tsawassen', 'Canada'),
 (3, 'Cactus Comidas para llevar', 'Cerrito 333', 'Buenos Aires', 'Argentina'),
 (4, 'Centro comercial Moctezuma', 'Sierras de Granada 9993', 'Mexico D.F.', 'Mexico'),
@@ -61,13 +61,13 @@ INSERT INTO `klienci` (`id`, `nazwa`, `adres`, `miasto`, `kraj`) VALUES
 -- Struktura tabeli dla tabeli `uzytkownicy`
 --
 -- Utworzenie: 13 Lis 2019, 11:46
--- Ostatnia aktualizacja: 13 Lis 2019, 11:30
+-- Ostatnia aktualizacja: 13 Lis 2019, 12:08
 --
 
 CREATE TABLE `uzytkownicy` (
   `id` int(11) NOT NULL COMMENT 'klucz główny',
   `login` varchar(50) NOT NULL COMMENT 'login użytkownika',
-  `stanowisko` enum('Administrator','Użytkownik') NOT NULL COMMENT 'stanowisko / typ konta',
+  `stanowisko` enum('Administrator','Użytkownik') CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL DEFAULT 'Użytkownik' COMMENT 'stanowisko / typ konta',
   `haslo` varchar(50) NOT NULL COMMENT 'hasło użytkownika'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Dane użytkowników';
 
@@ -76,7 +76,8 @@ CREATE TABLE `uzytkownicy` (
 --
 
 INSERT INTO `uzytkownicy` (`id`, `login`, `stanowisko`, `haslo`) VALUES
-(1, 'czarek', '', '9e38e8d688743e0d07d669a1fcbcd35b');
+(1, 'czarek', 'Użytkownik', '9e38e8d688743e0d07d669a1fcbcd35b'),
+(2, 'admin', 'Administrator', '21232f297a57a5a743894a0e4a801fc3');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -109,7 +110,7 @@ ALTER TABLE `klienci`
 -- AUTO_INCREMENT dla tabeli `uzytkownicy`
 --
 ALTER TABLE `uzytkownicy`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'klucz główny', AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'klucz główny', AUTO_INCREMENT=3;
 
 
 --
