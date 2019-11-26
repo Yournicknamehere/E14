@@ -14,31 +14,57 @@
     </div>
 
     <div class="content">
+        <form method="POST" action="<?php echo $_SERVER["PHP_SELF"];?>">
+            <p>Wybierz sposób sortowania tabeli klientów</p>
+            <select name="wedlug">
+                <option value="nazwa" selected>Wg. nazwy</option>
+                <option value="adres">Wg. adresu</option>
+                <option value="miasto">Wg. miasta</option>
+                <option value="kraj">Wg. kraju</option>
+            </select>
+            <p>oraz kolejność wyników</p>
+            <select name="kolejnosc">
+                <option value="ASC" selected>rosnąco</option>
+                <option value="DESC">malejąco</option>
+            </select><br><br>
+            <input type="submit" name="submitTabela" value="Wyświetl" class="formInputBtn"/><br>
+        </form>
+
     <div class="tabela">
        <?php
-            //Tworzy połączenie z bazą danych
-            $connection = new mysqli('localhost', 'root', '', 'cd4ti');
-            if ($connection->connect_error){ die("Błąd połączenia: " . $connection->connect_error); }
 
-            //Zapytanie do bazy danych
-            $result = $connection->query("SELECT nazwa, adres, miasto, kraj FROM klienci;");
+            if(isset($_POST["submitTabela"])){
+                //Tworzy połączenie z bazą danych
+                $connection = new mysqli('localhost', 'root', '', 'cd4ti');
+                if ($connection->connect_error){ die("Błąd połączenia: " . $connection->connect_error); }
 
-            //Tworzy rablice asocjacyjna '$tab' i zapisuje do niej wynik zapytania ORAZ wyświetla dane
-            echo "<table id='tabela'>";
-            echo "<tr> <th>Nazwa</th> <th>Adres</th> <th>Miasto</th> <th>Kraj</th> </tr>";
-            while($tab = $result->fetch_assoc()){
-                echo "<tr> <td>" .$tab['nazwa'] ."</td> <td>" .$tab['adres'] ."</td> <td>" .$tab['miasto'] ."</td> <td>" .$tab['kraj'] ."</td> </tr>";
+                //Pobiera dane z formularza
+                $wedlug = $_POST["wedlug"];
+                $kolejnosc = $_POST["kolejnosc"];
+
+                //Zapisuje kwerendę zależnie od wybranych opcji w formularzu
+                $sql = "SELECT nazwa, adres, miasto, kraj FROM klienci ORDER BY " .$_POST['wedlug'] ." " .$_POST['kolejnosc'] .";";
+                
+                //Wysyła zapytanie do bazy i zapisuje wynik do zmiennej $result
+                $result = $connection->query($sql);
+
+                //Tworzy tabelę HTML oraz tablicę asocjacyjną '$tab'
+                echo "<table id='tabela'>";
+                echo "<tr> <th>Nazwa</th> <th>Adres</th> <th>Miasto</th> <th>Kraj</th> </tr>";
+                while($tab = $result->fetch_assoc()){
+                    echo "<tr> <td>" .$tab['nazwa'] ."</td> <td>" .$tab['adres'] ."</td> <td>" .$tab['miasto'] ."</td> <td>" .$tab['kraj'] ."</td> </tr>";
+                }
+                echo "</table><br>";
+
+                //Zwalnia pamięć
+                $result->free();
+
+                //Zamyka połączenie z bazą danych
+                $connection->close();
             }
-            echo "</table><br>";
-
-            //Zwalnia pamięć
-            $result->free();
-
-            //Zamyka połączenie z bazą
-            $connection->close();
         ?>
         <!-- Cofnięcie do poprzedniej strony używając PHP -->
-        <button class="formInputBtn" id="confnijBtn"><a href ="<?php echo $_SERVER['HTTP_REFERER'];?>">Cofnij</a></button>
+        <button class="formInputBtn" id="confnijBtn"><a href="index.php">Cofnij</a></button>
     </div>
     </div>
     
