@@ -9,18 +9,17 @@
     <title>Struktura tabeli</title>
 </head>
 <body>
-    <!-- Pobieram nazwę tabeli już tutaj, żeby wyświetlić jej nazwę w headerze -->
-    <!-- i tworzę połączenie z bazą danych. -->
+    <!-- Tworzy połączenie z bazą danych -->
     <?php
         $connection = new mysqli('localhost', 'root', '', 'cd4ti');
         if($connection->connect_error) { die("Błąd połączenia: " .$connection->connect_error); }
-        $tabela = "";
     ?>
     <div class="header" id="header">
-        <?php echo "<h1>Struktura tabeli " .$tabela ."</h1>"; ?>
+        <h1>Struktura tabeli</h1>
     </div>
 
     <div class="content">
+        <!-- Pobiera do formularza listę tabel z bazy danych -->
         <form method="POST" action="<?php echo $_SERVER["PHP_SELF"];?>">
             <?php
                 $sql = "SHOW tables;";
@@ -38,6 +37,7 @@
        <?php
             if(isset($_POST['submitDescribe'])){
 
+                //Wyświetla strukturę tabeli wybranej w powyższym formularzu
                 $tabela = $_POST['jakaTabela'];
                 $sql = "DESCRIBE $tabela;";
                 $result = $connection->query($sql);
@@ -50,10 +50,11 @@
                 echo "</table><br>";
             }
 
+            //Czyści pamieć i zamyka połączenie z bazą danych
             $result->free();
             $connection->close();
         ?>
-        <!-- Cofnięcie do poprzedniej strony używając PHP -->
+        <!-- Cofnięcie do poprzedniej strony -->
         <button class="formInputBtn" id="confnijBtn"><a href ="index.php">Cofnij</a></button>
     </div>
     </div>
