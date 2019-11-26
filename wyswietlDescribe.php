@@ -10,39 +10,52 @@
 </head>
 <body>
     <!-- Pobieram nazwę tabeli już tutaj, żeby wyświetlić jej nazwę w headerze -->
-    <?php $tabela = $_POST['jakaTabela']; ?>
+    <!-- i tworzę połączenie z bazą danych. -->
+    <?php
+        $connection = new mysqli('localhost', 'root', '', 'cd4ti');
+        if($connection->connect_error) { die("Błąd połączenia: " .$connection->connect_error); }
+        $tabela = "";
+    ?>
     <div class="header" id="header">
         <?php echo "<h1>Struktura tabeli " .$tabela ."</h1>"; ?>
     </div>
 
     <div class="content">
+        <form method="POST" action="<?php echo $_SERVER["PHP_SELF"];?>">
+            <?php
+                $sql = "SHOW tables;";
+                $result = $connection->query($sql);
+                echo "<select name='jakaTabela'>";
+                while($obj = $result->fetch_object()){
+                    echo "<option>" .$obj->Tables_in_cd4ti ."</option>";
+                }
+                echo "</select><br><br>";
+            ?>
+            <input type="submit" name="submitDescribe" value="Wyświetl" class="formInputBtn"/>
+        </form>
+
     <div class="tabela">
        <?php
-            $connection = new mysqli('localhost', 'root', '', 'cd4ti');
-            if ($connection->connect_error){
-                die("Błąd połączenia: " . $connection->connect_error);
+            if(isset($_POST['submitDescribe'])){
+
+                $tabela = $_POST['jakaTabela'];
+                $sql = "DESCRIBE $tabela;";
+                $result = $connection->query($sql);
+
+                echo "<table id='tabela'>";
+                echo "<tr> <th>Field</th>  <th>Type</th> </tr>";
+                while($obj = $result->fetch_object()){
+                    echo "<tr><td>" .$obj->Field  ."</td><td>" .$obj->Type ."</td></tr>";
+                }
+                echo "</table><br>";
             }
 
-            
-
-            $result = $connection->query("DESCRIBE $tabela;");
-            echo "<table id='tabela'>";
-            echo "<tr> <th>Field</th> <th>Type</th> </tr>";
-            while($obj = $result->fetch_object()) {
-                echo "<tr><td>" .$obj->Field  ."</td> <td>" .$obj->Type ."</td>  </tr>";
-            }
-            echo "</table><br>";
-            
             $result->free();
-
-
-            //Zamyka połączenie z bazą
             $connection->close();
         ?>
         <!-- Cofnięcie do poprzedniej strony używając PHP -->
-        <button class="formInputBtn" id="confnijBtn"><a href ="<?php echo $_SERVER['HTTP_REFERER'];?>">Cofnij</a></button>
+        <button class="formInputBtn" id="confnijBtn"><a href ="index.php">Cofnij</a></button>
     </div>
     </div>
-    
 </body>
 </html>

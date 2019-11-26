@@ -23,7 +23,7 @@
             </p>
             <p>
                 <button class="menuButton" onclick="przekieruj('wyswietlTabela.php')">Tabela klientów</button>
-                <button class="menuButton" onclick="przekieruj('wyswietlanieDescribe.php')">Struktura tabeli</button>
+                <button class="menuButton" onclick="przekieruj('wyswietlDescribe.php')">Struktura tabeli</button>
                 <button class="menuButton" onclick="przekieruj('rejestrowanie.php')">Rejestracja</button>
             </p>
             <p>
