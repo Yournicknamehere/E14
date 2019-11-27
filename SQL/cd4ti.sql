@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 13 Lis 2019, 13:12
+-- Czas generowania: 27 Lis 2019, 09:58
 -- Wersja serwera: 10.4.6-MariaDB
 -- Wersja PHP: 7.2.21
 
@@ -25,49 +25,16 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `klienci`
---
--- Utworzenie: 13 Lis 2019, 11:46
--- Ostatnia aktualizacja: 13 Lis 2019, 12:04
---
-
-CREATE TABLE `klienci` (
-  `id` int(11) NOT NULL COMMENT 'klucz główny',
-  `nazwa` varchar(50) NOT NULL COMMENT 'nazwa klienta',
-  `adres` varchar(50) NOT NULL COMMENT 'adres klienta',
-  `miasto` varchar(50) NOT NULL COMMENT 'miasto',
-  `kraj` varchar(30) NOT NULL COMMENT 'kraj'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Dane klientów';
-
---
--- Zrzut danych tabeli `klienci`
---
-
-INSERT INTO `klienci` (`id`, `nazwa`, `adres`, `miasto`, `kraj`) VALUES
-(1, 'Around the Horn', 'Analinvasion St. 69', 'London', 'UK'),
-(2, 'Bottom-Dollar Marketse', '23 Tsawassen Blvd.', 'Tsawassen', 'Canada'),
-(3, 'Cactus Comidas para llevar', 'Cerrito 333', 'Buenos Aires', 'Argentina'),
-(4, 'Centro comercial Moctezuma', 'Sierras de Granada 9993', 'Mexico D.F.', 'Mexico'),
-(5, 'Consolidated Holdings', 'Berkeley Gardens 12 Brewery', 'London', 'UK'),
-(6, 'Ernst Handel', 'Kirchgasse 6', 'Graz', 'Austria'),
-(7, 'Franchi S.p.A.', 'Via Monte Bianco 34', 'Torino', 'Italy'),
-(8, 'Furia Bacalhau e Frutos do Mar', 'Jardim das rosas n. 32', 'Lisboa', 'Portugal'),
-(9, 'Great Lakes Food Market', '2732 Baker Blvd.', 'Eugene', 'USA'),
-(10, 'Hungry Owl All-Night Grocers', '8 Johnstown Road', 'Cork', 'Ireland');
-
--- --------------------------------------------------------
-
---
 -- Struktura tabeli dla tabeli `uzytkownicy`
 --
--- Utworzenie: 13 Lis 2019, 11:46
--- Ostatnia aktualizacja: 13 Lis 2019, 12:08
+-- Utworzenie: 27 Lis 2019, 08:56
+-- Ostatnia aktualizacja: 27 Lis 2019, 08:57
 --
 
 CREATE TABLE `uzytkownicy` (
   `id` int(11) NOT NULL COMMENT 'klucz główny',
   `login` varchar(50) NOT NULL COMMENT 'login użytkownika',
-  `stanowisko` enum('Administrator','Użytkownik') CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL DEFAULT 'Użytkownik' COMMENT 'stanowisko / typ konta',
+  `stanowisko` enum('Administrator','Uzytkownik') CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL DEFAULT 'Uzytkownik' COMMENT 'stanowisko / typ konta',
   `haslo` varchar(50) NOT NULL COMMENT 'hasło użytkownika'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Dane użytkowników';
 
@@ -76,18 +43,12 @@ CREATE TABLE `uzytkownicy` (
 --
 
 INSERT INTO `uzytkownicy` (`id`, `login`, `stanowisko`, `haslo`) VALUES
-(1, 'czarek', 'Użytkownik', '9e38e8d688743e0d07d669a1fcbcd35b'),
+(1, 'czarek', 'Uzytkownik', '9e38e8d688743e0d07d669a1fcbcd35b'),
 (2, 'admin', 'Administrator', '21232f297a57a5a743894a0e4a801fc3');
 
 --
 -- Indeksy dla zrzutów tabel
 --
-
---
--- Indeksy dla tabeli `klienci`
---
-ALTER TABLE `klienci`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeksy dla tabeli `uzytkownicy`
@@ -99,12 +60,6 @@ ALTER TABLE `uzytkownicy`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT dla tabeli `klienci`
---
-ALTER TABLE `klienci`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'klucz główny', AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT dla tabeli `uzytkownicy`
@@ -119,16 +74,15 @@ ALTER TABLE `uzytkownicy`
 USE `phpmyadmin`;
 
 --
--- Metadane dla tabeli klienci
---
-
---
 -- Metadane dla tabeli uzytkownicy
 --
 
 --
--- Metadane dla Bazy danych cd4ti
+-- Zrzut danych tabeli `pma__table_uiprefs`
 --
+
+INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+('root', 'cd4ti', 'uzytkownicy', '[]', '2019-11-27 08:57:19');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
