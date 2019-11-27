@@ -154,12 +154,12 @@ a:hover {
 select {
     border: 0;
     border-radius: 25px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     padding: 5px;
     background: #131418;
     color: white;
-    width: 30%;
+    width: 50%;
 }
 
 select:focus {outline: none;}
@@ -255,6 +255,28 @@ select:focus {outline: none;}
     }
 
     .formInput {
-        width: 60%;
+        width: 80%;
+        font-size: 18px;
+    }
+
+    .formInput::placeholder {color: white;}
+
+    .formInput::-webkit-input-placeholder {color: white;}
+
+    .formInput::-moz-placeholder {color: white;}
+
+    .formInput:-ms-input-placeholder {color: white;}
+
+    .content {
+        margin-top: 35px;
+        font-size: 18px;
+    }
+
+    body {
+        font-size: 16px;
+    }
+
+    select {
+        font-size: 18px;
     }
 }
