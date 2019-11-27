@@ -12,12 +12,20 @@
 <body>
     <div class="header" id="header">
         <h1>Logowanie do konta</h1>
+        <button>
+            <?php
+                if(isset($_SESSION['userName']) && !empty($_SESSION['userName'])) { echo "Witaj, " .$_SESSION['userName'] ."!"; }
+                else { echo "Witaj, Gość!"; } 
+            ?>
+        </button>
     </div>
 
     <div class="content">
+        <p id="zegar">Zanim przejdziesz dalej, należy się zalogować.</p>
         <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST">
             <input type="text" name="login" class="formInput" placeholder="Login"/><br>
-            <input type="password" name="haslo" class="formInput" placeholder="Hasło"/><br><br>
+            <input type="password" name="haslo" class="formInput" placeholder="Hasło"/><br>
+            Nie masz jeszcze konta? <a href="rejestrowanie.php"><b>Załóż je!</b></a>.<br><br>
             <input type="submit" name="submitLoguj" value="Zaloguj" class="formInputBtn"/>
         </form>
 
@@ -43,7 +51,7 @@
                     $_SESSION['userName'] = $loginUzytkownika;
                     $_SESSION['userAccountType'] = $stanowisko;
                     $loginUzytkownika = $hasloUzytkownika = $stanowisko = $hasloFormularz = $loginFormularz = "";
-                    echo "<script> przekieruj('profil.php'); </script>";
+                    echo "<script> przekieruj('menu.php'); </script>";
                 }else {
                     $loginUzytkownika = $hasloUzytkownika = $stanowisko = $hasloFormularz = $loginFormularz = "";
                     echo "<srcipt> alert('Błędny login lub hasło!'); </srcipt>";

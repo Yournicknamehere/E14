@@ -15,13 +15,30 @@ body {
 .header {
     background: #263238;
     width: 100%;
-    position: sticky;
-    position: -webkit-sticky;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    position: relative;
     padding-top: 10px;
     padding-bottom: 10px;
     top: 0; 
-    transition: 0.2s;
     font-size: 19px;
+}
+
+.header h1 {
+    text-align: center;
+}
+
+.header button {
+    position: absolute;
+    right: 0;
+    margin: auto;
+    background: none;
+    color: white;
+    font-size: 22px;
+    border: 0;
+    border-radius: 20px;
+    padding: 40px;
 }
 
 .content {

@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -11,6 +12,12 @@
 <body>
     <div class="header" id="header">
         <h1>Lista klientów</h1>
+        <button>
+            <?php
+                if(isset($_SESSION['userName']) && !empty($_SESSION['userName'])) { echo "Witaj, " .$_SESSION['userName'] ."!"; }
+                else { echo "Witaj, Gość!"; } 
+            ?>
+        </button>
     </div>
 
     <div class="content">
