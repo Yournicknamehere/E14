@@ -11,13 +11,18 @@
 </head>
 <body>
     <div class="header" id="header">
-        <h1>Ten banner może zniknąć!</h1>
-        <button onclick="przekieruj('profil.php')">
-            <?php
-                if(isset($_SESSION['userName']) && !empty($_SESSION['userName'])) { echo "Witaj, " .$_SESSION['userName'] ."!"; }
-                else { echo "Witaj, Gość!"; }
-            ?>
-        </button>
+        <a href="<?php echo $_SERVER["PHP_SELF"]; ?>" class="logo">Edytowanie CSS</a>
+        <div class="header-right">
+            <a class="active" href="profil.php">
+                <?php
+                    if(isset($_SESSION['userName']) && !empty($_SESSION['userName'])) { echo "Witaj, " .$_SESSION['userName'] ."!"; }
+                    else { echo "Witaj, Gość!"; } 
+                ?>
+            </a>
+
+            <a href="#wyloguj">Wyloguj</a>
+            <a href="zegarek.php">Zegarek</a>
+        </div>
     </div>
 
     <div class="content">

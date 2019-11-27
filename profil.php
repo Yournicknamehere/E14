@@ -17,13 +17,18 @@
         }
     ?>
     <div class="header" id="header">
-        <h1>Profil</h1>
-        <button onclick="przekieruj('profil.php')">
-            <?php
-                if(isset($_SESSION['userName']) && !empty($_SESSION['userName'])) { echo "Witaj, " .$_SESSION['userName'] ."!"; }
-                else { echo "Witaj, Gość!"; } 
-            ?>
-        </button>
+        <a href="<?php echo $_SERVER["PHP_SELF"]; ?>" class="logo">Profil</a>
+        <div class="header-right">
+            <a class="active" href="profil.php">
+                <?php
+                    if(isset($_SESSION['userName']) && !empty($_SESSION['userName'])) { echo "Witaj, " .$_SESSION['userName'] ."!"; }
+                    else { echo "Witaj, Gość!"; } 
+                ?>
+            </a>
+
+            <a href="#wyloguj">Wyloguj</a>
+            <a href="zegarek.php">Zegarek</a>
+        </div>
     </div>
 
     <div class="content">
@@ -35,7 +40,7 @@
         
         <div class="profil">
             <div class="card">
-                <img src="/img/img_avatar.png" alt="Avatar" height="420px" width="360px" style="width:100%">
+                <img src="/img/img_avatar.png" alt="Avatar" style="width:100%">
                 <div class="container">
                     <h4><b><?php echo $_SESSION['userName']; ?></b></h4>
                     <p><?php echo $_SESSION['userAccountType']; ?></p>  
