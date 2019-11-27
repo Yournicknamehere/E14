@@ -26,10 +26,12 @@ function ukryjBanner() {
     document.getElementById('header').style.visibility='hidden';
 }
 
+//Ustawia atrybut 'visibility' bannera na 'visible' (widoczny)
 function pokazBanner() {
     document.getElementById('header').style.visibility = 'visible';
 }
 
+//Zmienia kolor bannera
 function zmienKolor(kolor) {
     if(kolor == 'zielony') {
         document.getElementById('header').style.background="#1B5E20";
@@ -57,6 +59,7 @@ input.addEventListener("keyup", function(event) {
     }
 });
 
+//Przekierowuje do podanej podstrony
 var strona;
 function przekieruj(strona) {
     window.location.href = strona;
