@@ -37,7 +37,7 @@
                 <img src="/img/img_avatar.png" alt="Avatar" height="420px" width="360px" style="width:100%">
                 <div class="container">
                     <h4><b><?php echo $_SESSION['userName']; ?></b></h4>
-                    <p><?php echo $_SESSION['userAccountType']; ?></p>
+                    <p><?php echo $_SESSION['userAccountType']; ?></p>  
                 </div>
             </div>
         </div>
