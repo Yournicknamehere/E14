@@ -42,9 +42,10 @@
                 if($loginFormularz === $loginUzytkownika && $hasloFormularz === $hasloUzytkownika) {
                     $_SESSION['userName'] = $loginUzytkownika;
                     $_SESSION['userAccountType'] = $stanowisko;
+                    $loginUzytkownika = $hasloUzytkownika = $stanowisko = $hasloFormularz = $loginFormularz = "";
                     echo "<script> przekieruj('profil.php'); </script>";
                 }else {
-                    $loginUzytkownika = $hasloUzytkownika = $stanowisko = "";
+                    $loginUzytkownika = $hasloUzytkownika = $stanowisko = $hasloFormularz = $loginFormularz = "";
                     echo "<srcipt> alert('Błędny login lub hasło!'); </srcipt>";
                 }
             }

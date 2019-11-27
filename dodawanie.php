@@ -48,7 +48,7 @@
             }
             $connection->close();
          ?>
-        <button class="formInputBtn" id="confnijBtn"><a href ="index.php">Cofnij</a></button>
+        <button class="formInputBtn" id="confnijBtn"><a href ="menu.php">Cofnij</a></button>
     </div>
     
 </body>

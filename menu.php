@@ -27,7 +27,7 @@
                 <button class="menuButton" onclick="przekieruj('rejestrowanie.php')">Rejestracja</button>
             </p>
             <p>
-                <button class="menuButton" onclick="przekieruj('logowanie.php')">Logowanie</button>
+                <button class="menuButton" onclick="przekieruj('profil.php')">Profil</button>
                 <button class="menuButton" onclick="przekieruj('zegarek.html')">Zegarek</button>
                 <button class="menuButton" onclick="przekieruj('zmianaStylu.html')">Edytowanie CSS</button>
             </p>
