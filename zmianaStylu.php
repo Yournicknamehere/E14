@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -6,11 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/CSS/style.css">
     <script src="/JS/main.js"></script>
-    <title>Ukrywanie</title>
+    <title>Edytowanie CSS</title>
 </head>
 <body>
     <div class="header" id="header">
         <h1>Ten banner może zniknąć!</h1>
+        <button onclick="przekieruj('profil.php')">
+            <?php
+                if(isset($_SESSION['userName']) && !empty($_SESSION['userName'])) { echo "Witaj, " .$_SESSION['userName'] ."!"; }
+                else { echo "Witaj, Gość!"; }
+            ?>
+        </button>
     </div>
 
     <div class="content">

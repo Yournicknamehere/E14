@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -11,6 +12,12 @@
 <body onload="zegarek()">
     <div class="header" id="header">
         <h1>Zegarek</h1>
+        <button onclick="przekieruj('profil.php')">
+            <?php
+                if(isset($_SESSION['userName']) && !empty($_SESSION['userName'])) { echo "Witaj, " .$_SESSION['userName'] ."!"; }
+                else { echo "Witaj, Gość!"; }
+            ?>
+        </button>
     </div>
 
     <div class="content">

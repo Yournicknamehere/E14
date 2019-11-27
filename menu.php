@@ -35,8 +35,8 @@
             </p>
             <p>
                 <button class="menuButton" onclick="przekieruj('profil.php')">Profil</button>
-                <button class="menuButton" onclick="przekieruj('zegarek.html')">Zegarek</button>
-                <button class="menuButton" onclick="przekieruj('zmianaStylu.html')">Edytowanie CSS</button>
+                <button class="menuButton" onclick="przekieruj('zegarek.php')">Zegarek</button>
+                <button class="menuButton" onclick="przekieruj('zmianaStylu.php')">Edytowanie CSS</button>
             </p>
 
         </div>
