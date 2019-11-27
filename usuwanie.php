@@ -12,7 +12,7 @@
 <body>
     <div class="header" id="header">
         <h1>Usuwanie klientów</h1>
-        <button>
+        <button onclick="przekieruj('profil.php')">
             <?php
                 if(isset($_SESSION['userName']) && !empty($_SESSION['userName'])) { echo "Witaj, " .$_SESSION['userName'] ."!"; }
                 else { echo "Witaj, Gość!"; } 

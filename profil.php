@@ -10,9 +10,14 @@
     <title>Profil</title>
 </head>
 <body>
+    <?php
+        if(!isset($_SESSION['userName']) || empty($_SESSION['userName'])){
+            echo "<script> przekieruj('logowanie.php'); </script>";
+        }
+    ?>
     <div class="header" id="header">
         <h1>Profil</h1>
-        <button>
+        <button onclick="przekieruj('profil.php')">
             <?php
                 if(isset($_SESSION['userName']) && !empty($_SESSION['userName'])) { echo "Witaj, " .$_SESSION['userName'] ."!"; }
                 else { echo "Witaj, Gość!"; } 
@@ -29,7 +34,7 @@
         
         <div class="profil">
             <div class="card">
-                <img src="/img/img_avatar.png" alt="Avatar" style="width:100%">
+                <img src="/img/img_avatar.png" alt="Avatar" height="420px" width="360px" style="width:100%">
                 <div class="container">
                     <h4><b><?php echo $_SESSION['userName']; ?></b></h4>
                     <p><?php echo $_SESSION['userAccountType']; ?></p>
