@@ -40,7 +40,8 @@
                 $stanowisko = $obj->stanowisko;
 
                 if($loginFormularz === $loginUzytkownika && $hasloFormularz === $hasloUzytkownika) {
-                    $_SESSION['username'] = $loginUzytkownika;
+                    $_SESSION['userName'] = $loginUzytkownika;
+                    $_SESSION['userAccountType'] = $stanowisko;
                     echo "<script> przekieruj('profil.php'); </script>";
                 }else {
                     $loginUzytkownika = $hasloUzytkownika = $stanowisko = "";

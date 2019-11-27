@@ -19,8 +19,8 @@
             <input type="password" name="haslo1" class="formInput" placeholder="Hasło"/><br>
             <input type="password" name="haslo2" class="formInput" placeholder="Potwierdź hasło"/><br>
             <select name="stanowisko">
-                <option>Użytkownik</option>
-                <option>Administrator</option>
+                <option value="Uzytkownik">Użytkownik</option>
+                <option value="Administrator">Administrator</option>
             </select><br><br>
             <input type="submit" name="submitRejestracja" value="Dalej" class="formInputBtn"/>
         </form>

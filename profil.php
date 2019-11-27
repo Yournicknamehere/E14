@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -24,8 +25,8 @@
             <div class="card">
                 <img src="/img/img_avatar.png" alt="Avatar" style="width:100%">
                 <div class="container">
-                    <h4><b><?php echo $_SESSION['username']; ?></b></h4>
-                    <p><?php echo $stanowisko; ?></p>
+                    <h4><b><?php echo $_SESSION['userName']; ?></b></h4>
+                    <p><?php echo $_SESSION['userAccountType']; ?></p>
                 </div>
             </div>
         </div>
