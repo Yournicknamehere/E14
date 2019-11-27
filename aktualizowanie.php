@@ -10,6 +10,14 @@
     <title>Aktualizacja</title>
 </head>
 <body style="font-size: 16px;">
+
+    <!-- Przekierowuje niezalogowanego użytkownika do strony logowania -->
+    <?php
+        if(!isset($_SESSION['userName']) || empty($_SESSION['userName'])){
+            echo "<script> przekieruj('logowanie.php'); </script>";
+        }
+    ?>
+
     <div class="header" id="header">
         <h1>Aktualizowanie danych klienta</h1>
         <button onclick="przekieruj('profil.php')">
@@ -59,7 +67,7 @@
         </form>
 
         <?php 
-            if(isset($_POST['submitAktualizuj'])){
+            if(isset($_POST['submitAktualizuj']) && $_SESSION['userAccountType'] === "Administrator"){
                 $klient = $_POST['jakiKlient'];
                 $noweDane = trim($_POST['noweDane']);
                 $jakieDane = $_POST['jakieDane'];

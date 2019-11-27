@@ -10,6 +10,13 @@
     <title>Usuwanie</title>
 </head>
 <body>
+
+    <!-- Przekierowuje niezalogowanego użytkownika do strony logowania -->
+    <?php
+        if(!isset($_SESSION['userName']) || empty($_SESSION['userName'])){
+            echo "<script> przekieruj('logowanie.php'); </script>";
+        }
+    ?>
     <div class="header" id="header">
         <h1>Usuwanie klientów</h1>
         <button onclick="przekieruj('profil.php')">
@@ -44,7 +51,7 @@
             //Zwalnia pamięć
             $result->free();
 
-            if(isset($_POST['submitUsun'])){
+            if(isset($_POST['submitUsun']) && $_SESSION['userAccountType'] === "Administrator"){
                 $klient = $_POST['jakiKlient'];
                 $sql = "DELETE FROM klienci WHERE nazwa='$klient';";
 

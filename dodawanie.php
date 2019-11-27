@@ -10,6 +10,14 @@
     <title>Dodawanie klientów</title>
 </head>
 <body>
+
+    <!-- Przekierowuje niezalogowanego użytkownika do strony logowania -->
+    <?php
+        if(!isset($_SESSION['userName']) || empty($_SESSION['userName'])){
+            echo "<script> przekieruj('logowanie.php'); </script>";
+        }
+    ?>
+
     <div class="header" id="header">
         <h1>Dodawanie klientów do bazy</h1>
         <button onclick="przekieruj('profil.php')">
@@ -34,7 +42,7 @@
             $connection = new mysqli('localhost', 'root', '', 'cd4ti');
             if($connection->connect_error) { die("Błąd połączenia: " .$connection->connect_error); }
 
-            if(isset($_POST['submitDodaj'])){
+            if(isset($_POST['submitDodaj']) && $_SESSION['userAccountType'] === "Administrator"){
                 $nazwa = trim($_POST['nazwa']);
                 $adres = trim($_POST['adres']);
                 $miasto = trim($_POST['miasto']);
