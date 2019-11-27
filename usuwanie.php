@@ -51,12 +51,15 @@
             //Zwalnia pamięć
             $result->free();
 
-            if(isset($_POST['submitUsun']) && $_SESSION['userAccountType'] === "Administrator"){
-                $klient = $_POST['jakiKlient'];
-                $sql = "DELETE FROM klienci WHERE nazwa='$klient';";
+            if(isset($_POST['submitUsun'])){
+                if($_SESSION['userAccountType'] === "Administrator"){
+                    $klient = $_POST['jakiKlient'];
+                    $sql = "DELETE FROM klienci WHERE nazwa='$klient';";
 
-                if($connection->query($sql) === true) { echo "<script> alert('Pomyślnie usunięto: $klient'); </script>"; }
-                else { echo "<p>" ."ERROR" .$sql ."</p>" ."<p>" .$connection->error ."</p>"; }
+                    if($connection->query($sql) === true) { echo "<script> alert('Pomyślnie usunięto: $klient'); </script>"; }
+                    else { echo "<p>" ."ERROR" .$sql ."</p>" ."<p>" .$connection->error ."</p>"; }
+                }else { echo "<script> alert('Tylko administrator może usuwać użytkowników!'); </script>"; }
+                
             }
             
             $connection->close();

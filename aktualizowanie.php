@@ -67,19 +67,21 @@
         </form>
 
         <?php 
-            if(isset($_POST['submitAktualizuj']) && $_SESSION['userAccountType'] === "Administrator"){
-                $klient = $_POST['jakiKlient'];
-                $noweDane = trim($_POST['noweDane']);
-                $jakieDane = $_POST['jakieDane'];
+            if(isset($_POST['submitAktualizuj'])){
+                if($_SESSION['userAccountType'] === "Administrator"){
+                    $klient = $_POST['jakiKlient'];
+                    $noweDane = trim($_POST['noweDane']);
+                    $jakieDane = $_POST['jakieDane'];
 
-                if(empty($klient) || empty($noweDane) || empty($jakieDane)){
-                    echo "<script> alert('Nie można zaktualizować danych, ponieważ co najmniej jedno pole nie zostało uzupełnione!'); </script>";
-                }else{
-                    $sql = "UPDATE klienci SET $jakieDane = '$noweDane' WHERE nazwa = '$klient';";
-
-                    if($connection->query($sql) === true) { echo "<script> alert('Pomyślnie zaktualizowano dane: $klient'); </script>"; }
-                    else { echo "ERROR: " .$sql ."<br>" .$connection->error; }
-                }
+                    if(empty($klient) || empty($noweDane) || empty($jakieDane)){
+                        echo "<script> alert('Nie można zaktualizować danych, ponieważ co najmniej jedno pole nie zostało uzupełnione!'); </script>";
+                    }else{
+                        $sql = "UPDATE klienci SET $jakieDane = '$noweDane' WHERE nazwa = '$klient';";
+    
+                        if($connection->query($sql) === true) { echo "<script> alert('Pomyślnie zaktualizowano dane: $klient'); </script>"; }
+                        else { echo "ERROR: " .$sql ."<br>" .$connection->error; }
+                    }
+                }else { echo "<script> alert('Tylko administrator może aktualizować dane użytkowników!'); </script>"; }
                 $connection->close();
             }
         ?>

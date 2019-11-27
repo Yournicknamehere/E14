@@ -42,24 +42,27 @@
             $connection = new mysqli('localhost', 'root', '', 'cd4ti');
             if($connection->connect_error) { die("Błąd połączenia: " .$connection->connect_error); }
 
-            if(isset($_POST['submitDodaj']) && $_SESSION['userAccountType'] === "Administrator"){
-                $nazwa = trim($_POST['nazwa']);
-                $adres = trim($_POST['adres']);
-                $miasto = trim($_POST['miasto']);
-                $kraj = trim($_POST['kraj']);
+            if(isset($_POST['submitDodaj'])){
+                if($_SESSION['userAccountType'] === "Administrator"){
+                    $nazwa = trim($_POST['nazwa']);
+                    $adres = trim($_POST['adres']);
+                    $miasto = trim($_POST['miasto']);
+                    $kraj = trim($_POST['kraj']);
+                    
+                    if(empty($nazwa) || empty($adres) || empty($miasto) || empty($kraj)) {
+                        echo "<script> alert('Nie dodano klienta, ponieważ co najmniej jedno pole nie zostało uzupełnione.'); </script>";
+                    }
+                    else {
+                        $sql = "INSERT INTO klienci (nazwa, adres, miasto, kraj) 
+                        VALUES ('$nazwa', '$adres', '$miasto', '$kraj');";
+    
+                        if($connection->query($sql) === true) {
+                            echo "<script> alert('Pomyślnie dodano klienta: $nazwa'); </script>";
+                        }else { echo "ERROR: " .$sql ."<br>" .$connection->error; }
+                    }
+                    $nazwa = $adres = $miasto = $kraj = $sql = "";
 
-                if(empty($nazwa) || empty($adres) || empty($miasto) || empty($kraj)) {
-                    echo "<script> alert('Nie dodano klienta, ponieważ co najmniej jedno pole nie zostało uzupełnione.'); </script>";
-                }
-                else {
-                    $sql = "INSERT INTO klienci (nazwa, adres, miasto, kraj) 
-                    VALUES ('$nazwa', '$adres', '$miasto', '$kraj');";
-
-                    if($connection->query($sql) === true) {
-                        echo "<script> alert('Pomyślnie dodano klienta: $nazwa'); </script>";
-                    }else { echo "ERROR: " .$sql ."<br>" .$connection->error; }
-                }
-                $nazwa = $adres = $miasto = $kraj = $sql = "";
+                }else { echo "<script> alert('Tylko administrator może dodawać użytkowników!'); </script>"; }
             }
             $connection->close();
          ?>
