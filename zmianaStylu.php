@@ -20,9 +20,16 @@
                 ?>
             </a>
 
-            <a href="#wyloguj">Wyloguj</a>
-            <a href="zegarek.php">Zegarek</a>
+            <a href="#sidebar" onclick="openNav()">☰</a>
         </div>
+    </div>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <p>Menu</p>
+        <a href="profil.php">Profil</a>
+        <a href="wyswietlTabela.php">Lista klientów</a>
+        <a href="wyswietlDescribe.php">Struktura tabel</a>
     </div>
 
     <div class="content">
@@ -38,7 +45,7 @@
             <button class="menuButton" onclick="zmienKolor('niebieski')" style="background: #0D47A1;"></button>
         </p>
 
-        <button class="formInputBtn"><a href ="menu.php">Cofnij</a></button>
+        <button class="formInputBtn"><a href ="index.php">Cofnij</a></button>
     </div>
     
 </body>

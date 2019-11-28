@@ -16,6 +16,10 @@ body {
     overflow: hidden;
     background-color: #131418;
     padding: 10px 5px;
+    transition: margin-right .5s;
+    -moz-transition: margin-right .5s;
+    transition: margin-top .5s;
+    -moz-transition: margin-top .5s;
 }
 
 .header a {
@@ -26,6 +30,10 @@ body {
     text-decoration: none;
     font-size: 18px;
     line-height: 25px;
+    transition: margin-right .5s;
+    -moz-transition: margin-right .5s;
+    transition: margin-top .5s;
+    -moz-transition: margin-top .5s;
 }
 
 .header a.logo {
@@ -122,8 +130,8 @@ input:focus {
 }
 
 .profileButton {
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border: 0;
     width: 90%;
     background: #131418;
@@ -274,8 +282,113 @@ select:focus {outline: none;}
       text-align: left;
       font-family: monospace;
   }
+  
+  .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      background-color: #131418;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 80px;
+  }
+
+  .sidebar a {
+      margin-top: 5px;
+      padding-bottom: 5px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+  }
+
+  .sidebar a:hover { color: #0D47A1; }
+
+  .sidebar p {
+    padding: 0;
+    font-size: 38px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+    color: #818181;
+    text-align: center;
+}
+
+  .sidebar .closebtn {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 42px;
+      margin-top: 10px;
+      margin-left: 20px;
+  }
+
+  #main {
+      transition: margin-right .5s;
+      -moz-transition: margin-right .5s;
+      transition: margin-top .5s;
+      -moz-transition: margin-top .5s;
+      padding: 16px;
+  }
+
+
 
   @media screen and (max-width: 780px) {
+
+    .profileButton {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border: 0;
+        width: 90%;
+        background: #131418;
+        color: white;
+        font-size: 16px;
+        height: 40px;
+        margin-bottom: 10px;
+    }
+
+    .sidebar {
+        height: 40%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 45%;
+        background-color: #131418;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 50px;
+    }
+  
+    .sidebar a {
+        margin-top: 5px;
+        padding-bottom: 5px;
+        text-decoration: none;
+        font-size: 20px;
+        color:#818181;
+        display: block;
+        transition: 0.5s;
+    }
+
+    .sidebar p {
+        padding: 0;
+        font-size: 32px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 500;
+        color: #818181;
+    }
+
+    .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 38px;
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+
     .header a {
         float: none;
         display: block;
@@ -283,6 +396,15 @@ select:focus {outline: none;}
     }
 
     .header-right { float: none; }
+
+    #openNav {
+        float: right;
+        font-size: 28px;
+    }
+    #openNav::after {
+        content: "";
+        clear: both;
+    }
 
     .info { font-size: 36px; }
 

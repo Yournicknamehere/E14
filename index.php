@@ -12,7 +12,7 @@
 <body>
     <?php
         if(isset($_SESSION['userName']) && !empty($_SESSION['userName'])) {
-            echo "<script> przekieruj('menu.php'); </script>";
+            echo "<script> przekieruj('profil.php'); </script>";
         }else {
             echo "<script> przekieruj('logowanie.php'); </script>";
         }

@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php 
+    session_start();
+    $connection = new mysqli('localhost', 'root', '', 'cd4ti');
+    if($connection->connect_error) { die("Błąd połączenia: " .$connection->connect_error); }
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -7,6 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/CSS/style.css">
     <script src="/JS/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Profil</title>
 </head>
 <body>
@@ -26,18 +31,20 @@
                 ?>
             </a>
 
-            <a href="#wyloguj">Wyloguj</a>
-            <a href="zegarek.php">Zegarek</a>
+            <a href="#sidebar" id="openNav" onclick="openNav()">☰</a>
         </div>
     </div>
 
-    <div class="content">
-        <?php
-            $connection = new mysqli('localhost', 'root', '', 'cd4ti');
-            if($connection->connect_error) { die("Błąd połączenia: " .$connection->connect_error); }
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <p>Menu</p>
+        <a href="profil.php">Profil</a>
+        <a href="wyswietlTabela.php">Lista klientów</a>
+        <a href="wyswietlDescribe.php">Struktura tabel</a>
+    </div>
 
-        ?>
 
+    <div class="content" id="main">
         <div class="row">
             <div class="column">
                 <div class="profil">
@@ -79,7 +86,7 @@
 
         </div>
         <!-- Powrót do strony głównej -->
-        <button class="formInputBtn" id="confnijBtn"><a href ="menu.php">Cofnij</a></button>
+        <button class="formInputBtn" id="confnijBtn"><a href ="index.php">Cofnij</a></button>
     </div>
 
     <?php $connection->close(); ?>   
