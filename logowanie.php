@@ -43,7 +43,7 @@
                 $loginFormularz = trim($_POST['login']);
                 $hasloFormularz = trim($_POST['haslo']);
                 $hasloFormularz = md5($hasloFormularz, FALSE);
-                $sql = "SELECT login, haslo, stanowisko FROM uzytkownicy WHERE login = '$loginFormularz';";
+                $sql = "SELECT login, imie, nazwisko, email, haslo, stanowisko FROM uzytkownicy WHERE login = '$loginFormularz';";
             
                 $result = $connection->query($sql);
             
@@ -54,6 +54,9 @@
 
                 if($loginFormularz === $loginUzytkownika && $hasloFormularz === $hasloUzytkownika) {
                     $_SESSION['userName'] = $loginUzytkownika;
+                    $_SESSION['userFirstName'] = $obj->imie;
+                    $_SESSION['userLastName'] = $obj->nazwisko;
+                    $_SESSION['userEmail'] = $obj->email;
                     $_SESSION['userAccountType'] = $stanowisko;
                     $loginUzytkownika = $hasloUzytkownika = $stanowisko = $hasloFormularz = $loginFormularz = "";
                     echo "<script> przekieruj('menu.php'); </script>";

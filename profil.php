@@ -37,17 +37,47 @@
             if($connection->connect_error) { die("Błąd połączenia: " .$connection->connect_error); }
 
         ?>
-        
-        <div class="profil">
-            <div class="card">
-                <img src="/img/img_avatar.png" alt="Avatar" style="width:100%">
-                <div class="container">
-                    <h4><b><?php echo $_SESSION['userName']; ?></b></h4>
-                    <p><?php echo $_SESSION['userAccountType']; ?></p>  
+
+        <div class="row">
+            <div class="column">
+                <div class="profil">
+                    <div class="card">
+                        <img src="/img/img_avatar.png" alt="Avatar"   style="width:100%">
+                        <div class="container">
+                            <h4><b><?php echo $_SESSION['userFirstName'] .$_SESSION['userLastName']; ?></b></h4>
+                            <p><?php echo $_SESSION['userAccountType']; ?></p>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <div class="column">
+                <h2 style="font-size: 46px">Ustawienia konta</h2>
+                <div class="profileInfo">
+                    <p><b>Nazwa użytkownika: </b> <?php echo $_SESSION['userName']; ?> </p>
+                    <p><b>Imię: </b> <?php echo $_SESSION['userFirstName']; ?> </p>
+                    <b><b>Nazwisko: </b> <?php echo $_SESSION['userLastName']; ?> </b>
+                    <p><b>Adres E-mail: </b> <?php echo $_SESSION['userEmail']; ?> </p>
+                    <p><b>Typ konta: </b> <?php echo $_SESSION['userAccountType']; ?> </p>
+                </div>
+
+                <div class="rowInRow">
+                    <div class="columnInColumn">
+                        <button class="profileButton">Zmień hasło</button>
+                    </div>
+
+                    <div class="columnInColumn">
+                        <button class="profileButton">Usuń konto</button>
+                    </div>
+
+                    <div class="columnInColumn">
+                        <button class="profileButton">Wyloguj</button>
+                    </div>
+                </div>
+                
+            </div>
+
         </div>
-        
         <!-- Powrót do strony głównej -->
         <button class="formInputBtn" id="confnijBtn"><a href ="menu.php">Cofnij</a></button>
     </div>
