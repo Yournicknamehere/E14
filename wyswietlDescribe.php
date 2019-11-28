@@ -25,7 +25,7 @@
                 ?>
             </a>
 
-            <a href="#sidebar" onclick="openNav()">☰</a>
+            <a href="#sidebar" id="openNav" onclick="openNav()">☰</a>
         </div>
     </div>
 
