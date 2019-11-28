@@ -16,6 +16,7 @@ body {
     overflow: hidden;
     background-color: #131418;
     padding: 10px 5px;
+    transition: 0.5s;
     transition: margin-right .5s;
     -moz-transition: margin-right .5s;
     transition: margin-top .5s;
@@ -30,6 +31,7 @@ body {
     text-decoration: none;
     font-size: 18px;
     line-height: 25px;
+    transition: 0.5s;
     transition: margin-right .5s;
     -moz-transition: margin-right .5s;
     transition: margin-top .5s;
@@ -39,11 +41,7 @@ body {
 .header a.logo {
     font-size: 28px;
     font-weight: bold;
-    text-align: center; 
-}
-
-.header a:hover {
-    font-weight: bold;
+    text-align: center;
 }
 
 .header a:active {
@@ -53,6 +51,7 @@ body {
 
 .header a.active {
     background-color: #0D47A1;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .header-right {
@@ -304,6 +303,7 @@ select:focus {outline: none;}
       color: #818181;
       display: block;
       transition: 0.3s;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 
   .sidebar a:hover { color: #0D47A1; }
@@ -370,6 +370,7 @@ select:focus {outline: none;}
         color:#818181;
         display: block;
         transition: 0.5s;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
 
     .sidebar p {
