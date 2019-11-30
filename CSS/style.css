@@ -378,9 +378,8 @@ select:focus {
         width: 90%;
         background: #131418;
         color: white;
-        font-size: 16px;
-        height: 40px;
-        margin-bottom: 10px;
+        font-size: 16px !important;
+        height: 55px;
         transition: 0.3s;
     }
     .sidebar {
