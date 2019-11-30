@@ -27,9 +27,25 @@
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
         <p>Menu</p>
-        <a href="profil.php">Profil</a>
-        <a href="wyswietlTabela.php">Lista klientów</a>
-        <a href="wyswietlDescribe.php">Struktura tabel</a>
+        <?php
+            if($_SESSION['userAccountType'] === "Administrator"){
+                echo "<a href='aktualizowanie.php'>Aktualizacja danych</a>";
+                echo "<a href='dodawanie.php'>Dodawanie klientów</a>";
+                echo "<a href='usuwanie.php'>Usuwanie klientów</a>";
+                echo "<a href='wyswietlDescribe.php'>Struktura tabel</a>";
+                echo "<a href='wyswietlTabela.php'>Lista klientów</a>";
+                echo "<a href='zegarek.php'>Zegar</a>";
+                echo "<a href='zmianaStylu.php'>Edycja CSS</a>";
+            } elseif($_SESSION['userAccountType'] === "Uzytkownik"){
+                echo "<a href='wyswietlDescribe.php'>Struktura tabel</a>";
+                echo "<a href='wyswietlTabela.php'>Lista klientów</a>";
+                echo "<a href='zegarek.php'>Zegar</a>";
+                echo "<a href='zmianaStylu.php'>Edycja CSS</a>";
+            } else {
+                echo "<a href='logowanie.php'>Zaloguj</a>";
+                echo "<a href='rejestrowanie.php'>Rejestracja</a>";
+            }
+        ?>
     </div>
 
     <div class="content">

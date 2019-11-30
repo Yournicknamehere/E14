@@ -51,7 +51,6 @@ body {
 
 .header a.active {
     background-color: #0D47A1;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .header-right {
@@ -60,7 +59,6 @@ body {
 
 .info {
     font-size: 48px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #131418;
     margin-left: 20px;
     margin-right: 20px;
@@ -72,6 +70,7 @@ body {
     margin-top: 70px;
     font-size: 25px;
     text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .formInput {
@@ -83,6 +82,7 @@ body {
     font-size: 25px;
     background: #131418;
     color: white;
+    transition: 0.3s;
 }
 
 input:focus {
@@ -94,13 +94,13 @@ input:focus {
     border-color: #0D47A1;
 }
 
-.formInput::placeholder {color: white;}
+.formInput::placeholder {color: rgba(255, 255, 255, 0.568);}
 
-.formInput::-webkit-input-placeholder {color: white;}
+.formInput::-webkit-input-placeholder {color: rgba(255, 255, 255, 0.568);}
 
-.formInput::-moz-placeholder {color: white;}
+.formInput::-moz-placeholder {color: rgba(255, 255, 255, 0.568);}
 
-.formInput:-ms-input-placeholder {color: white;}
+.formInput:-ms-input-placeholder {color: rgba(255, 255, 255, 0.568);}
 
 .formOutput {font-size: 27px;}
 
@@ -112,7 +112,10 @@ input:focus {
     color: white;
     width: 150px;
     height: 45px;
+    transition: 0.3s;
 }
+
+.formInputBtn:hover { background: #0D47A1; }
 
 .menuButton {
     padding: 10px;
@@ -138,7 +141,10 @@ input:focus {
     font-size: 20px;
     height: 40px;
     margin-bottom: 20px;
+    transition: 0.3s;
 }
+
+.profileButton:hover { background: #0D47A1; }
 
 a {
     text-decoration: none;
@@ -239,72 +245,76 @@ select:focus {outline: none;}
     padding: 2px 16px;
   }
 
-  .profil {
+.profil {
       width: 100%;
       margin-top: 50px;
       margin-bottom: 50px;
       vertical-align: middle;
       text-align: center;
       margin: auto;
-  }
+}
 
-  #confnijBtn {
+#confnijBtn {
       margin-top: 50px;
-  }
+}
 
-  .column {
+.column {
       float: left;
       width: 50%;
       padding: 10px;
-  }
+}
 
-  .row::after {
+.row::after {
       content: "";
       display: table;
       clear: both;
-  }
+}
 
-  .columnInColumn {
+.columnInColumn {
       float: left;
       width: 33%;
-  }
+}
 
-  .rowInRow::after {
+.rowInRow::after {
       content: "";
       display: table;
       clear: both;
-  }
+}
 
-  .profileInfo {
+.profileInfo {
       width: 100%;
       padding: 10px;
       text-align: left;
-      font-family: monospace;
-  }
+}
+
+.profileInfo p { font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; }
+
+.profileInfo b { color: rgb(31, 112, 235); }
+
   
-  .sidebar {
-      height: 100%;
+.sidebar {
       width: 0;
       position: fixed;
       z-index: 1;
-      top: 0;
+      top: auto;
       right: 0;
       background-color: #131418;
       overflow-x: hidden;
       transition: 0.5s;
       padding-top: 80px;
-  }
+      padding-bottom: 80px;
+}
 
-  .sidebar a {
-      margin-top: 5px;
-      padding-bottom: 5px;
-      text-decoration: none;
-      font-size: 25px;
-      color: #818181;
-      display: block;
-      transition: 0.3s;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
+.sidebar a {
+    margin-top: 5px;
+    padding-bottom: 5px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
   .sidebar a:hover { color: #0D47A1; }
 
@@ -348,18 +358,20 @@ select:focus {outline: none;}
         font-size: 16px;
         height: 40px;
         margin-bottom: 10px;
+        transition: 0.3s;
     }
 
     .sidebar {
-        height: 40%;
         width: 0;
         position: fixed;
         z-index: 1;
-        top: 45%;
+        top: auto;
         background-color: #131418;
         overflow-x: hidden;
         transition: 0.5s;
         padding-top: 50px;
+        padding-bottom: 50px;
+        padding-left: 0px;
     }
   
     .sidebar a {

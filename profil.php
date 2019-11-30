@@ -21,8 +21,8 @@
             echo "<script> przekieruj('logowanie.php'); </script>";
         }
     ?>
-    <div class="header" id="header">
-        <a href="<?php echo $_SERVER["PHP_SELF"]; ?>" class="logo">Profil</a>
+    <div class="header" id="header" onload="wyswietlTytul()">
+        <a href="<?php echo $_SERVER["PHP_SELF"]; ?>" class="logo"> <p id="tytul"></p> </a>
         <div class="header-right">
             <a class="active" href="profil.php">
                 <?php
@@ -31,16 +31,32 @@
                 ?>
             </a>
 
-            <a href="#sidebar" id="openNav" onclick="openNav()">☰</a>
+            <a href="#sidebar" id="openNav" onclick="openNav()">☰ Menu</a>
         </div>
     </div>
 
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
         <p>Menu</p>
-        <a href="profil.php">Profil</a>
-        <a href="wyswietlTabela.php">Lista klientów</a>
-        <a href="wyswietlDescribe.php">Struktura tabel</a>
+        <?php
+            if($_SESSION['userAccountType'] === "Administrator"){
+                echo "<a href='aktualizowanie.php'>Aktualizacja danych</a>";
+                echo "<a href='dodawanie.php'>Dodawanie klientów</a>";
+                echo "<a href='usuwanie.php'>Usuwanie klientów</a>";
+                echo "<a href='wyswietlDescribe.php'>Struktura tabel</a>";
+                echo "<a href='wyswietlTabela.php'>Lista klientów</a>";
+                echo "<a href='zegarek.php'>Zegar</a>";
+                echo "<a href='zmianaStylu.php'>Edycja CSS</a>";
+            } elseif($_SESSION['userAccountType'] === "Uzytkownik"){
+                echo "<a href='wyswietlDescribe.php'>Struktura tabel</a>";
+                echo "<a href='wyswietlTabela.php'>Lista klientów</a>";
+                echo "<a href='zegarek.php'>Zegar</a>";
+                echo "<a href='zmianaStylu.php'>Edycja CSS</a>";
+            } else {
+                echo "<a href='logowanie.php'>Zaloguj</a>";
+                echo "<a href='rejestrowanie.php'>Rejestracja</a>";
+            }
+        ?>
     </div>
 
 
@@ -51,7 +67,7 @@
                     <div class="card">
                         <img src="/img/img_avatar.png" alt="Avatar"   style="width:100%">
                         <div class="container">
-                            <h4><b><?php echo $_SESSION['userFirstName'] .$_SESSION['userLastName']; ?></b></h4>
+                            <h4><b><?php echo $_SESSION['userFirstName'] ." " .$_SESSION['userLastName']; ?></b></h4>
                             <p><?php echo $_SESSION['userAccountType']; ?></p>
                         </div>
                     </div>
@@ -63,7 +79,7 @@
                 <div class="profileInfo">
                     <p><b>Nazwa użytkownika: </b> <?php echo $_SESSION['userName']; ?> </p>
                     <p><b>Imię: </b> <?php echo $_SESSION['userFirstName']; ?> </p>
-                    <b><b>Nazwisko: </b> <?php echo $_SESSION['userLastName']; ?> </b>
+                    <p><b>Nazwisko: </b> <?php echo $_SESSION['userLastName']; ?> </p>
                     <p><b>Adres E-mail: </b> <?php echo $_SESSION['userEmail']; ?> </p>
                     <p><b>Typ konta: </b> <?php echo $_SESSION['userAccountType']; ?> </p>
                 </div>

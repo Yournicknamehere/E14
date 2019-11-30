@@ -66,9 +66,15 @@ function przekieruj(strona) {
 }
 
 function openNav() {
-    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("mySidebar").style.width = "30%";
+    document.getElementById("mySidebar").style.paddingLeft = "20px";
 }
 
 function closeNav() {
     document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("mySidebar").style.paddingLeft = "0";
+}
+
+function wyswietlTytul() {
+    document.getElementById("tytul").innerHTML = document.title;
 }
