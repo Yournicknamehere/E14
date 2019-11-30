@@ -45,7 +45,7 @@ body {
 }
 
 .header a:active {
-    background-color:#0D47A1;
+    background-color: #0D47A1;
     color: white;
 }
 
@@ -94,15 +94,25 @@ input:focus {
     border-color: #0D47A1;
 }
 
-.formInput::placeholder {color: rgba(255, 255, 255, 0.568);}
+.formInput::placeholder {
+    color: rgba(255, 255, 255, 0.568);
+}
 
-.formInput::-webkit-input-placeholder {color: rgba(255, 255, 255, 0.568);}
+.formInput::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.568);
+}
 
-.formInput::-moz-placeholder {color: rgba(255, 255, 255, 0.568);}
+.formInput::-moz-placeholder {
+    color: rgba(255, 255, 255, 0.568);
+}
 
-.formInput:-ms-input-placeholder {color: rgba(255, 255, 255, 0.568);}
+.formInput:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.568);
+}
 
-.formOutput {font-size: 27px;}
+.formOutput {
+    font-size: 27px;
+}
 
 .formInputBtn {
     border: 0;
@@ -115,7 +125,9 @@ input:focus {
     transition: 0.3s;
 }
 
-.formInputBtn:hover { background: #0D47A1; }
+.formInputBtn:hover {
+    background: #0D47A1;
+}
 
 .menuButton {
     padding: 10px;
@@ -144,7 +156,9 @@ input:focus {
     transition: 0.3s;
 }
 
-.profileButton:hover { background: #0D47A1; }
+.profileButton:hover {
+    background: #0D47A1;
+}
 
 a {
     text-decoration: none;
@@ -181,21 +195,27 @@ select {
     width: 50%;
 }
 
-select:focus {outline: none;}
+select:focus {
+    outline: none;
+}
 
 #tabela {
     border-collapse: collapse;
     width: 100%;
 }
-  
+
 #tabela td, #tabela th {
     border: 1px solid #ddd;
     padding: 8px;
 }
-  
-#tabela tr:nth-child(even) {background-color: rgba(5, 56, 95, 0.589);}
 
-#tabela tr:hover {background-color: #131418}
+#tabela tr:nth-child(even) {
+    background-color: rgba(5, 56, 95, 0.589);
+}
+
+#tabela tr:hover {
+    background-color: #131418
+}
 
 #tabela th {
     padding-top: 12px;
@@ -217,7 +237,9 @@ select:focus {outline: none;}
     vertical-align: auto;
 }
 
-#selectDane {margin-bottom: 70px}
+#selectDane {
+    margin-bottom: 70px
+}
 
 #zegar {
     font-size: 72px;
@@ -232,77 +254,79 @@ select:focus {outline: none;}
 }
 
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-  }
+}
 
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
-  
-  /* Add some padding inside the card container */
-  .container {
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
     padding: 2px 16px;
-  }
+}
 
 .profil {
-      width: 100%;
-      margin-top: 50px;
-      margin-bottom: 50px;
-      vertical-align: middle;
-      text-align: center;
-      margin: auto;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    vertical-align: middle;
+    text-align: center;
+    margin: auto;
 }
 
 #confnijBtn {
-      margin-top: 50px;
+    margin-top: 50px;
 }
 
 .column {
-      float: left;
-      width: 50%;
-      padding: 10px;
+    float: left;
+    width: 50%;
+    padding: 10px;
 }
 
 .row::after {
-      content: "";
-      display: table;
-      clear: both;
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .columnInColumn {
-      float: left;
-      width: 33%;
+    float: left;
+    width: 33%;
 }
 
 .rowInRow::after {
-      content: "";
-      display: table;
-      clear: both;
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .profileInfo {
-      width: 100%;
-      padding: 10px;
-      text-align: left;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
 }
 
-.profileInfo p { font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; }
+.profileInfo p {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 
-.profileInfo b { color: rgb(31, 112, 235); }
+.profileInfo b {
+    color: rgb(31, 112, 235);
+}
 
-  
 .sidebar {
-      width: 0;
-      position: fixed;
-      z-index: 1;
-      top: auto;
-      right: 0;
-      background-color: #131418;
-      overflow-x: hidden;
-      transition: 0.5s;
-      padding-top: 80px;
-      padding-bottom: 80px;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: auto;
+    right: 0;
+    background-color: #131418;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 
 .sidebar a {
@@ -316,9 +340,11 @@ select:focus {outline: none;}
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-  .sidebar a:hover { color: #0D47A1; }
+.sidebar a:hover {
+    color: #0D47A1;
+}
 
-  .sidebar p {
+.sidebar p {
     padding: 0;
     font-size: 38px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -327,27 +353,24 @@ select:focus {outline: none;}
     text-align: center;
 }
 
-  .sidebar .closebtn {
-      position: absolute;
-      top: 0;
-      left: 0;
-      font-size: 42px;
-      margin-top: 10px;
-      margin-left: 20px;
-  }
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 42px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
 
-  #main {
-      transition: margin-right .5s;
-      -moz-transition: margin-right .5s;
-      transition: margin-top .5s;
-      -moz-transition: margin-top .5s;
-      padding: 16px;
-  }
+#main {
+    transition: margin-right .5s;
+    -moz-transition: margin-right .5s;
+    transition: margin-top .5s;
+    -moz-transition: margin-top .5s;
+    padding: 16px;
+}
 
-
-
-  @media screen and (max-width: 780px) {
-
+@media screen and (max-width: 780px) {
     .profileButton {
         padding-top: 10px;
         padding-bottom: 10px;
@@ -360,7 +383,6 @@ select:focus {outline: none;}
         margin-bottom: 10px;
         transition: 0.3s;
     }
-
     .sidebar {
         width: 0;
         position: fixed;
@@ -373,18 +395,16 @@ select:focus {outline: none;}
         padding-bottom: 50px;
         padding-left: 0px;
     }
-  
     .sidebar a {
         margin-top: 5px;
         padding-bottom: 5px;
         text-decoration: none;
         font-size: 20px;
-        color:#818181;
+        color: #818181;
         display: block;
         transition: 0.5s;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
-
     .sidebar p {
         padding: 0;
         font-size: 32px;
@@ -392,7 +412,6 @@ select:focus {outline: none;}
         font-weight: 500;
         color: #818181;
     }
-
     .sidebar .closebtn {
         position: absolute;
         top: 0;
@@ -401,15 +420,14 @@ select:focus {outline: none;}
         margin-left: 10px;
         margin-top: 5px;
     }
-
     .header a {
         float: none;
         display: block;
         text-align: left;
     }
-
-    .header-right { float: none; }
-
+    .header-right {
+        float: none;
+    }
     #openNav {
         float: right;
         font-size: 28px;
@@ -418,30 +436,36 @@ select:focus {outline: none;}
         content: "";
         clear: both;
     }
-
-    .info { font-size: 36px; }
-
-    .column { width: 100%; }
-
+    .info {
+        font-size: 36px;
+    }
+    .column {
+        width: 100%;
+    }
     .formInput {
         width: 80%;
         font-size: 18px;
     }
-
-    .formInput::placeholder {color: white;}
-
-    .formInput::-webkit-input-placeholder {color: white;}
-
-    .formInput::-moz-placeholder {color: white;}
-
-    .formInput:-ms-input-placeholder {color: white;}
-
+    .formInput::placeholder {
+        color: white;
+    }
+    .formInput::-webkit-input-placeholder {
+        color: white;
+    }
+    .formInput::-moz-placeholder {
+        color: white;
+    }
+    .formInput:-ms-input-placeholder {
+        color: white;
+    }
     .content {
         margin-top: 35px;
         font-size: 18px;
     }
-
-    body { font-size: 16px; }
-
-    select { font-size: 18px; }
+    body {
+        font-size: 16px;
+    }
+    select {
+        font-size: 18px;
+    }
 }
