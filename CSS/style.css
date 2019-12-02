@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+
 * {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -9,7 +11,7 @@ body {
     color: white;
     font-size: 20px;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .header {
@@ -21,6 +23,7 @@ body {
     -moz-transition: margin-right .5s;
     transition: margin-top .5s;
     -moz-transition: margin-top .5s;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .header a {
@@ -29,7 +32,6 @@ body {
     text-align: center;
     padding: 13px;
     text-decoration: none;
-    font-size: 18px;
     line-height: 25px;
     transition: 0.5s;
     transition: margin-right .5s;
@@ -39,7 +41,7 @@ body {
 }
 
 .header a.logo {
-    font-size: 28px;
+    font-size: 40px;
     font-weight: bold;
     text-align: center;
 }
@@ -58,7 +60,9 @@ body {
 }
 
 .info {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 48px;
+    line-height: 77px;
     background-color: #131418;
     margin-left: 20px;
     margin-right: 20px;
@@ -68,9 +72,8 @@ body {
 .content {
     width: 100%;
     margin-top: 70px;
-    font-size: 25px;
     text-align: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    line-height: 32.36px;
 }
 
 .formInput {
@@ -80,9 +83,14 @@ body {
     height: 45px;
     width: 50%;
     font-size: 25px;
+    font-family: 'Montserrat', sans-serif !important;
     background: #131418;
     color: white;
     transition: 0.3s;
+}
+
+input {
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 input:focus {
@@ -115,6 +123,7 @@ input:focus {
 }
 
 .formInputBtn {
+    font-family: 'Montserrat', sans-serif;
     border: 0;
     margin-bottom: 20px;
     font-size: 25px;
@@ -187,8 +196,6 @@ a:hover {
 
 select {
     border: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
     padding: 5px;
     background: #131418;
     color: white;
@@ -243,7 +250,6 @@ select:focus {
 
 #zegar {
     font-size: 72px;
-    font-family: Arial, Helvetica, sans-serif;
     background-color: #131418;
     margin-left: 20px;
     margin-right: 20px;
@@ -309,7 +315,7 @@ select:focus {
 }
 
 .profileInfo p {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .profileInfo b {
@@ -325,19 +331,20 @@ select:focus {
     background-color: #131418;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    line-height: 48.54px;
 }
 
 .sidebar a {
     margin-top: 5px;
     padding-bottom: 5px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 30px;
+    font-weight: 500;
     color: #818181;
     display: block;
     transition: 0.3s;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .sidebar a:hover {
@@ -346,9 +353,9 @@ select:focus {
 
 .sidebar p {
     padding: 0;
-    font-size: 38px;
+    font-size: 60px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 500;
+    font-weight: 600;
     color: #818181;
     text-align: center;
 }
@@ -357,7 +364,7 @@ select:focus {
     position: absolute;
     top: 0;
     left: 0;
-    font-size: 42px;
+    font-size: 48px;
     margin-top: 10px;
     margin-left: 20px;
 }
@@ -393,6 +400,7 @@ select:focus {
         padding-top: 50px;
         padding-bottom: 50px;
         padding-left: 0px;
+        line-height: 32.36px;
     }
     .sidebar a {
         margin-top: 5px;
@@ -402,20 +410,19 @@ select:focus {
         color: #818181;
         display: block;
         transition: 0.5s;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
     .sidebar p {
         padding: 0;
-        font-size: 32px;
+        font-size: 40px;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-weight: 500;
+        font-weight: 600;
         color: #818181;
     }
     .sidebar .closebtn {
         position: absolute;
         top: 0;
         left: 0;
-        font-size: 38px;
+        font-size: 40px;
         margin-left: 10px;
         margin-top: 5px;
     }
@@ -429,7 +436,7 @@ select:focus {
     }
     #openNav {
         float: right;
-        font-size: 28px;
+        font-size: 30px;
     }
     #openNav::after {
         content: "";
@@ -457,14 +464,10 @@ select:focus {
     .formInput:-ms-input-placeholder {
         color: white;
     }
+
     .content {
         margin-top: 35px;
         font-size: 18px;
-    }
-    body {
-        font-size: 16px;
-    }
-    select {
-        font-size: 18px;
+        line-height: 29.12px;
     }
 }
