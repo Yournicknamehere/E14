@@ -49,14 +49,29 @@
     </div>
 
     <div class="content">
-        <p class="info">Zanim przejdziesz dalej, należy się zalogować.</p>
-        <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST">
-            <input type="text" name="login" class="formInput" placeholder="Login"/><br>
-            <input type="password" name="haslo" class="formInput" placeholder="Hasło"/><br>
-            Nie masz jeszcze konta? <a href="rejestrowanie.php"><b>Załóż je!</b></a>.<br><br>
-            <input type="submit" name="submitLoguj" value="Zaloguj" class="formInputBtn"/>
-        </form>
+        <div class="card">
+            <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST">
+                <ul>
+                    <li>
+                        <label for="login">Login</label>
+                        <input type="text" name="login" class="formInput" placeholder="Login" maxlength="50" required>
+                        <span>Tu wpisz swój login</span>
+                    </li>
+                    <li>
+                        <label for="password">Hasło</label>
+                        <input type="password" name="haslo" class="formInput" placeholder="Hasło" maxlength="50" required>
+                        <span>Tutaj wpisz hasło</span>
+                    </li>
+                    <li>
+                        <p>Nie masz jeszcze konta? <a href="rejestrowanie.php"><b>Załóż je!</b></a></p>
 
+                    </li>
+                    <li>
+                        <input type="submit" name="submitLoguj" value="Zaloguj" class="formInputBtn"/>
+                    </li>
+                </ul>
+            </form>
+        </div>
         <?php
             if(isset($_POST['submitLoguj'])){
                 $connection = new mysqli('localhost', 'root', '', 'cd4ti');

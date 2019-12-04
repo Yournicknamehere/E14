@@ -19,10 +19,8 @@ body {
     background-color: #131418;
     padding: 10px 5px;
     transition: 0.5s;
-    transition: margin-right .5s;
-    -moz-transition: margin-right .5s;
-    transition: margin-top .5s;
-    -moz-transition: margin-top .5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -34,10 +32,8 @@ body {
     text-decoration: none;
     line-height: 25px;
     transition: 0.5s;
-    transition: margin-right .5s;
-    -moz-transition: margin-right .5s;
-    transition: margin-top .5s;
-    -moz-transition: margin-top .5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
 }
 
 .header a.logo {
@@ -53,6 +49,7 @@ body {
 
 .header a.active {
     background-color: #0D47A1;
+    font-weight: 500;
 }
 
 .header-right {
@@ -61,7 +58,7 @@ body {
 
 .info {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 48px;
+    font-size: 40px;
     line-height: 77px;
     background-color: #131418;
     margin-left: 20px;
@@ -74,19 +71,7 @@ body {
     margin-top: 70px;
     text-align: center;
     line-height: 32.36px;
-}
-
-.formInput {
-    padding: 10px;
-    border: 0;
-    margin-bottom: 20px;
-    height: 45px;
-    width: 50%;
-    font-size: 25px;
-    font-family: 'Montserrat', sans-serif !important;
-    background: #131418;
-    color: white;
-    transition: 0.3s;
+    font-size: 20px !important;
 }
 
 input {
@@ -95,6 +80,24 @@ input {
 
 input:focus {
     outline: none;
+}
+
+form > p {
+    font-weight: 500;
+}
+
+.formInput {
+    padding: 10px;
+    border: 0;
+    margin-bottom: 20px;
+    height: 45px;
+    width: 50%;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif !important;
+    background: none;
+    color: white;
+    transition: 0.3s;
+    -moz-transition: 0.3s;
 }
 
 .formInput:focus {
@@ -126,12 +129,14 @@ input:focus {
     font-family: 'Montserrat', sans-serif;
     border: 0;
     margin-bottom: 20px;
-    font-size: 25px;
+    font-size: 20px;
     background: #131418;
     color: white;
     width: 150px;
     height: 45px;
     transition: 0.3s;
+    -moz-transition: 0.3s;
+    -webkit-transition: 0.3s;
 }
 
 .formInputBtn:hover {
@@ -163,6 +168,8 @@ input:focus {
     height: 40px;
     margin-bottom: 20px;
     transition: 0.3s;
+    -moz-transition: 0.3s;
+    -webkit-transition: 0.3s;
 }
 
 .profileButton:hover {
@@ -196,10 +203,16 @@ a:hover {
 
 select {
     border: 0;
-    padding: 5px;
+    padding: 10px;
     background: #131418;
     color: white;
     width: 50%;
+    transition: 0.3s;
+    -moz-transition: 0.3s;
+    -webkit-transition: 0.3s;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 20px;
+
 }
 
 select:focus {
@@ -209,6 +222,9 @@ select:focus {
 #tabela {
     border-collapse: collapse;
     width: 100%;
+    transition: 0.3s;
+    -moz-transition: 0.3s;
+    -webkit-transition: 0.3s;
 }
 
 #tabela td, #tabela th {
@@ -262,11 +278,74 @@ select:focus {
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
+    -moz-transition: 0.3s;
+    -webkit-transition: 0.3s;
 }
 
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
+
+.card ul {
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card li {
+    display: block;
+    padding: 9px;
+    border: 1px solid #818181;
+    margin-bottom: 30px;
+    border-radius: 3px;
+}
+
+.card li:last-child{
+    border: none;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.card li > label {
+    display: block;
+    float: left;
+    margin-top: -19px;
+    background: #FFFFFF;
+    height: 14px;
+    padding: 2px 5px 2px 5px;
+    font-size: 14px;
+    overflow: hidden;
+}
+
+.card input[type="text"],
+.card input[type="password"],
+.card input[type="email"],
+.card input select {
+    box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	display: block;
+	outline: none;
+	border: none;
+	height: 25px;
+	line-height: 25px;
+	font-size: 20px;
+	padding: 0;
+}
+
+.card li > span {
+    background: #131418;
+	display: block;
+	padding: 3px;
+	margin: 0 -9px -9px -9px;
+	text-align: center;
+	color: #818181;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+
 
 .container {
     padding: 2px 16px;
@@ -282,7 +361,7 @@ select:focus {
 }
 
 #confnijBtn {
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .column {
@@ -331,6 +410,8 @@ select:focus {
     background-color: #131418;
     overflow-x: hidden;
     transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
     padding-top: 40px;
     padding-bottom: 40px;
     line-height: 48.54px;
@@ -340,11 +421,13 @@ select:focus {
     margin-top: 5px;
     padding-bottom: 5px;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 500;
     color: #818181;
     display: block;
     transition: 0.3s;
+    -moz-transition: 0.3s;
+    -webkit-transition: 0.3s;
 }
 
 .sidebar a:hover {
@@ -353,8 +436,7 @@ select:focus {
 
 .sidebar p {
     padding: 0;
-    font-size: 60px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50px;
     font-weight: 600;
     color: #818181;
     text-align: center;
@@ -370,10 +452,9 @@ select:focus {
 }
 
 #main {
-    transition: margin-right .5s;
-    -moz-transition: margin-right .5s;
-    transition: margin-top .5s;
-    -moz-transition: margin-top .5s;
+    transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
     padding: 16px;
 }
 
@@ -388,6 +469,8 @@ select:focus {
         font-size: 16px !important;
         height: 55px;
         transition: 0.3s;
+        -moz-transition: 0.3s;
+        -webkit-transition: 0.3s;
     }
     .sidebar {
         width: 0;
@@ -397,6 +480,8 @@ select:focus {
         background-color: #131418;
         overflow-x: hidden;
         transition: 0.5s;
+        -moz-transition: 0.5s;
+        -webkit-transition: 0.5s;
         padding-top: 50px;
         padding-bottom: 50px;
         padding-left: 0px;
@@ -410,11 +495,12 @@ select:focus {
         color: #818181;
         display: block;
         transition: 0.5s;
+        -moz-transition: 0.5s;
+        -webkit-transition: 0.5s;
     }
     .sidebar p {
         padding: 0;
         font-size: 40px;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
         font-weight: 600;
         color: #818181;
     }
@@ -443,10 +529,13 @@ select:focus {
         clear: both;
     }
     .info {
-        font-size: 36px;
+        font-size: 40px;
     }
     .column {
         width: 100%;
+    }
+    form > p {
+        font-weight: 500;
     }
     .formInput {
         width: 80%;
