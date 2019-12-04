@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 27 Lis 2019, 12:09
+-- Czas generowania: 04 Gru 2019, 13:16
 -- Wersja serwera: 10.4.6-MariaDB
 -- Wersja PHP: 7.2.21
 
@@ -41,7 +41,7 @@ CREATE TABLE `klienci` (
 --
 
 INSERT INTO `klienci` (`id`, `nazwa`, `adres`, `miasto`, `kraj`) VALUES
-(1, 'Around the Horn', '120 Hanover Sq.', 'London', 'UK'),
+(1, 'UK', '120 Hanover Sq.', 'London', 'XD'),
 (2, 'Bottom-Dollar Marketse', '23 Tsawassen Blvd.', 'Tsawassen', 'Canada'),
 (3, 'Cactus Comidas para llevar', 'Cerrito 333', 'Buenos Aires', 'Argentina'),
 (4, 'Centro comercial Moctezuma', 'Sierras de Granada 9993', 'Mexico D.F.', 'Mexico'),
@@ -67,6 +67,9 @@ INSERT INTO `klienci` (`id`, `nazwa`, `adres`, `miasto`, `kraj`) VALUES
 CREATE TABLE `uzytkownicy` (
   `id` int(11) NOT NULL COMMENT 'klucz główny',
   `login` varchar(50) NOT NULL COMMENT 'login użytkownika',
+  `imie` varchar(50) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL DEFAULT 'Nie podano' COMMENT 'Imie użytkownika',
+  `nazwisko` varchar(50) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL DEFAULT 'Nie podano' COMMENT 'Nazwisko użytkownika',
+  `email` varchar(50) DEFAULT NULL COMMENT 'Adres E-mail użytkownika',
   `stanowisko` enum('Administrator','Uzytkownik') CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL DEFAULT 'Uzytkownik' COMMENT 'stanowisko / typ konta',
   `haslo` varchar(50) NOT NULL COMMENT 'hasło użytkownika'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Dane użytkowników';
@@ -75,10 +78,10 @@ CREATE TABLE `uzytkownicy` (
 -- Zrzut danych tabeli `uzytkownicy`
 --
 
-INSERT INTO `uzytkownicy` (`id`, `login`, `stanowisko`, `haslo`) VALUES
-(1, 'czarek', 'Uzytkownik', '9e38e8d688743e0d07d669a1fcbcd35b'),
-(2, 'admin', 'Administrator', '21232f297a57a5a743894a0e4a801fc3'),
-(3, 'szybki', 'Uzytkownik', '81dc9bdb52d04dc20036dbd8313ed055');
+INSERT INTO `uzytkownicy` (`id`, `login`, `imie`, `nazwisko`, `email`, `stanowisko`, `haslo`) VALUES
+(1, 'czarek', 'Cezary', 'Durkalec', 'czadur@gmail.com', 'Uzytkownik', '9e38e8d688743e0d07d669a1fcbcd35b'),
+(2, 'admin', 'Administrator', 'Systemu', 'admin@thispage.net', 'Administrator', '21232f297a57a5a743894a0e4a801fc3'),
+(3, 'szybki', 'Władysław', 'Chciwonosy', 'szybki@wlad.fu', 'Uzytkownik', '81dc9bdb52d04dc20036dbd8313ed055');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -96,7 +99,8 @@ ALTER TABLE `klienci`
 --
 ALTER TABLE `uzytkownicy`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `login` (`login`);
+  ADD UNIQUE KEY `login` (`login`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -113,24 +117,6 @@ ALTER TABLE `klienci`
 --
 ALTER TABLE `uzytkownicy`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'klucz główny', AUTO_INCREMENT=4;
-
-
---
--- Metadane
---
-USE `phpmyadmin`;
-
---
--- Metadane dla tabeli klienci
---
-
---
--- Metadane dla tabeli uzytkownicy
---
-
---
--- Metadane dla Bazy danych cd4ti
---
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
