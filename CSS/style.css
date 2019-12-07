@@ -44,6 +44,7 @@ body {
 .header a:active {
     background-color: #0D47A1;
     color: white;
+    border-radius: 3px;
 }
 
 .header a.active {
@@ -58,7 +59,9 @@ body {
 .form {
     max-width: 700px;
     margin: 50px auto;
+    margin-top: 100px;
     background: #131418;
+    border-radius: 6px;
     padding: 40px;
     font-family: 'Montserrat', sans-serif;
     transition: 0.5s;
@@ -188,8 +191,7 @@ body {
 .form input[type="submit"], .form input[type="button"] {
     background: #0D47A1;
     border: none;
-    padding: 10px 20px 10px 20px;
-    border-bottom: 3px solid #0D47A1;
+    padding: 10px 30px 10px 30px;
     border-radius: 3px;
     color: #D2E2FF;
     font-size: 26px;
@@ -232,6 +234,7 @@ input:focus {
 .formInput {
     padding: 10px;
     border: 0;
+    background: #131418;
     margin-bottom: 20px;
     height: 45px;
     width: 50%;

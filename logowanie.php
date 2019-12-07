@@ -54,7 +54,7 @@
             <ul>
                 <li>
                     <label for="login">Login</label>
-                    <input type="text" name="login" maxlength="50" required>
+                    <input type="text" name="login" maxlength="50" required autofocus>
                 </li>
                 <li>
                     <label for="password">Hasło</label>
@@ -100,8 +100,6 @@
                 }
             }
         ?>
-        <!-- Cofnięcie do poprzedniej strony -->
-        <button class="formInputBtn" id="confnijBtn"><a href ="index.php">Cofnij</a></button>
     </div>
     
 </body>

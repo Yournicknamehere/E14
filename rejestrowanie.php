@@ -49,18 +49,41 @@
     </div>
 
     <div class="content">
-        <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST">
-            <input type="text" name="login" class="formInput" placeholder="Login" required/><br>
-            <input type="text" name="imie" class="formInput" placeholder="Imię"/><br>
-            <input type="text" name="nazwisko" class="formInput" placeholder="Nazwisko"/><br>
-            <input type="email" name="email" class="formInput" placeholder="E-mail"/><br>
-            <input type="password" name="haslo1" class="formInput" placeholder="Hasło" required/><br>
-            <input type="password" name="haslo2" class="formInput" placeholder="Potwierdź hasło" required/><br>
-            <select name="stanowisko">
-                <option value="Uzytkownik">Użytkownik</option>
-                <option value="Administrator">Administrator</option>
-            </select><br><br>
-            <input type="submit" name="submitRejestracja" value="Dalej" class="formInputBtn"/>
+        <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST" class="form">
+            <h1>Rejestracja</h1>
+            <ul>
+                <li>
+                    <label for="login">Login</label>
+                    <input type="text" name="login" maxlength="50" required autofocus>
+                </li>
+                <li>
+                    <label for="imie">Imię</label>
+                    <input type="text" name="imie" maxlength="50" required>
+                </li>
+                <li>
+                    <label for="nazwisko">Nazwisko</label>
+                    <input type="text" name="nazwisko" maxlength="50" required>
+                </li>
+                <li>
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" maxlength="50" required>
+                </li>
+                <li>
+                    <label for="haslo1">Hasło</label>
+                    <input type="password" name="haslo1" maxlength="50" required>
+                </li>
+                <li>
+                    <label for="haslo2">Powtór hasło</label>
+                    <input type="password" name="haslo2" maxlength="50" required>
+                </li>
+                <select name="stanowisko">
+                    <option value="Uzytkownik">Użytkownik</option>
+                    <option value="Administrator">Administrator</option>
+                </select>
+                <li>
+                    <input type="submit" name="submitRejestracja" value="Dalej"/>
+                </li>
+            </ul>
         </form>
 
         <?php
