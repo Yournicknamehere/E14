@@ -53,7 +53,7 @@
             <h1>Logowanie</h1>
             <ul>
                 <li>
-                    <label for="login">Login</label>
+                    <label for="login" id="label">Login</label>
                     <input type="text" name="login" maxlength="50" required autofocus>
                 </li>
                 <li>

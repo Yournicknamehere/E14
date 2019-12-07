@@ -120,9 +120,10 @@ body {
     margin-top: -26px;
     background: #131418;
     height: 25px;
-    padding: 2px 2px 2px 2px;
+    padding: 2px 3px 2px 3px;
     color: #818181;
     font-size: 15px;
+    z-index: 1;
     overflow: hidden;
     font-family: 'Montserrat', sans-serif;
     transition: 0.5s;
@@ -234,7 +235,7 @@ input:focus {
 .formInput {
     padding: 10px;
     border: 0;
-    background: #131418;
+    background: #131418 !important;
     margin-bottom: 20px;
     height: 45px;
     width: 50%;
