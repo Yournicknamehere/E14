@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
-
 * {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -82,7 +81,7 @@ input:focus {
     outline: none;
 }
 
-form > p {
+form>p {
     font-weight: 500;
 }
 
@@ -212,7 +211,6 @@ select {
     -webkit-transition: 0.3s;
     font-family: 'Montserrat', sans-serif !important;
     font-size: 20px;
-
 }
 
 select:focus {
@@ -286,66 +284,94 @@ select:focus {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.card ul {
+.loginCard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    -moz-transition: 0.3s;
+    -webkit-transition: 0.3s;
+    width: 33%;
+    background: #131418;
+    position: relative;
+    left: 35%;
+    padding: 50px;
+}
+
+.loginCard .formInput {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    background: none;
+    padding: 0;
+    color: white;
+    width: 100%;
+    transition: 0.3s;
+    -moz-transition: 0.3s;
+    -webkit-transition: 0.3s;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    display: block;
+    outline: none;
+    border: none;
+}
+
+.loginCard .formInput::placeholder {
+    color: rgba(255, 255, 255, 0.568);
+}
+
+.loginCard .formInput::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.568);
+}
+
+.loginCard .formInput::-moz-placeholder {
+    color: rgba(255, 255, 255, 0.568);
+}
+
+.loginCard .formInput:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.568);
+}
+
+.loginCard ul {
     display: block;
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.card li {
+.loginCard li {
     display: block;
-    padding: 9px;
+    z-index: 2;
     border: 1px solid #818181;
     margin-bottom: 30px;
     border-radius: 3px;
+    transition: 0.3s;
+    -moz-transition: 0.3s;
+    -webkit-transition: 0.3s;
+    padding: 5px;
 }
 
-.card li:last-child{
+.loginCard li:last-child {
     border: none;
     margin-bottom: 0;
     text-align: center;
 }
 
-.card li > label {
+.loginCard li>label {
     display: block;
     float: left;
-    margin-top: -19px;
-    background: #FFFFFF;
-    height: 14px;
+    margin-top: -21px;
+    background: #131418;
+    height: 15px;
     padding: 2px 5px 2px 5px;
     font-size: 14px;
-    overflow: hidden;
+    z-index: 1;
+    transition: 0.3s;
+    -moz-transition: 0.3s;
+    -webkit-transition: 0.3s;
 }
 
-.card input[type="text"],
-.card input[type="password"],
-.card input[type="email"],
-.card input select {
-    box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	width: 100%;
-	display: block;
-	outline: none;
-	border: none;
-	height: 25px;
-	line-height: 25px;
-	font-size: 20px;
-	padding: 0;
+.loginCardContainer {
+    padding: 5px 15px;
 }
-
-.card li > span {
-    background: #131418;
-	display: block;
-	padding: 3px;
-	margin: 0 -9px -9px -9px;
-	text-align: center;
-	color: #818181;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 11px;
-}
-
 
 .container {
     padding: 2px 16px;
@@ -534,7 +560,7 @@ select:focus {
     .column {
         width: 100%;
     }
-    form > p {
+    form>p {
         font-weight: 500;
     }
     .formInput {
@@ -553,7 +579,6 @@ select:focus {
     .formInput:-ms-input-placeholder {
         color: white;
     }
-
     .content {
         margin-top: 35px;
         font-size: 18px;
