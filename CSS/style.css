@@ -6,7 +6,7 @@
 
 body {
     margin: 0;
-    background: #2c3e50;
+    background: #37474f;
     color: white;
     font-size: 20px;
     text-align: center;
@@ -25,7 +25,7 @@ body {
 
 .header a {
     float: left;
-    color: white;
+    color: #fafafa;
     text-align: center;
     padding: 13px;
     text-decoration: none;
@@ -42,13 +42,13 @@ body {
 }
 
 .header a:active {
-    background-color: #0D47A1;
-    color: white;
+    background-color: #000000;
+    color: #fafafa;
     border-radius: 3px;
 }
 
 .header a.active {
-    background-color: #0D47A1;
+    background-color: #000000;
     font-weight: 500;
 }
 
@@ -61,6 +61,7 @@ body {
     margin: 50px auto;
     margin-top: 100px;
     background: #131418;
+    color: #fafafa;
     border-radius: 6px;
     padding: 40px;
     font-family: 'Montserrat', sans-serif;
@@ -71,7 +72,7 @@ body {
 
 .form p {
     font-size: 16px;
-    color: #C0C0C0;
+    color: #fafafa;
 }
 
 .form h1 {
@@ -96,18 +97,6 @@ body {
     -webkit-transition: 0.5s;
 }
 
-.form li {
-    display: block;
-    padding: 15px;
-    border: 1px solid #818181;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    border-radius: 3px;
-    transition: 0.5s;
-    -moz-transition: 0.5s;
-    -webkit-transition: 0.5s;
-}
-
 .form li:last-child {
     border: none;
     margin-bottom: 0px;
@@ -118,10 +107,10 @@ body {
     display: block !important;
     float: left;
     margin-top: -26px;
-    background: #131418;
+    background: none;
     height: 25px;
     padding: 2px 3px 2px 3px;
-    color: #818181;
+    color: #fafafa;
     font-size: 15px;
     z-index: 1;
     overflow: hidden;
@@ -138,14 +127,15 @@ body {
     width: 100%;
     display: block !important;
     outline: none;
-    border: none;
+    border: 0;
+    border-bottom: 2px solid #393a3e;
     line-height: 25px !important;
-    font-size: 20px;
-    padding: 0;
+    font-size: 24px;
+    padding: 10px 30px 10px 30px;
+    margin-bottom: 40px;
     font-family: 'Montserrat', sans-serif;
-    background-color: none !important;
-    background: none !important;
-    color: white !important;
+    background: #393a3e !important;
+    color: #fafafa !important;
     transition: 0.5s;
     -moz-transition: 0.5s;
     -webkit-transition: 0.5s;
@@ -167,7 +157,18 @@ body {
     color: rgba(255, 255, 255, 0.568);
 }
 
-.form input[type="text"]:focus, .form input[type="date"]:focus, .form input[type="datetime"]:focus, .form input[type="email"]:focus, .form input[type="number"]:focus, .form input[type="search"]:focus, .form input[type="time"]:focus, .form input[type="url"]:focus, .form input[type="password"]:focus, .form textarea:focus, .form select:focus {
+.form input[type="text"]:focus,
+.form input[type="date"]:focus,
+.form input[type="datetime"]:focus,
+.form input[type="email"]:focus,
+.form input[type="number"]:focus,
+.form input[type="search"]:focus,
+.form input[type="time"]:focus,
+.form input[type="url"]:focus,
+.form input[type="password"]:focus,
+.form textarea:focus,
+.form select:focus {
+    border-bottom-color: #0D47A1;
 
 }
 
