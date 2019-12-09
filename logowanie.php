@@ -13,14 +13,7 @@
     <div class="header" id="header">
         <a href="<?php echo $_SERVER["PHP_SELF"]; ?>" class="logo">Logowanie</a>
         <div class="header-right">
-            <a class="active" href="profil.php">
-                <?php
-                    if(isset($_SESSION['userName']) && !empty($_SESSION['userName'])) { echo "Witaj, " .$_SESSION['userName'] ."!"; }
-                    else { echo "Witaj, Gość!"; } 
-                ?>
-            </a>
-
-            <a href="#sidebar" id="openNav" onclick="openNav()">☰</a>
+            <a href="#sidebar" id="openNav" class="openNav" onclick="openNav()">☰</a>
         </div>
     </div>
 
@@ -51,9 +44,9 @@
     <div class="content">
         <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST" class="form">
             <h1>Logowanie</h1>
-            <input type="text" name="login" maxlength="50" required>
+            <input type="text" name="login" placeholder="Login użytkownika" maxlength="50" required>
               
-            <input type="password" name="haslo" maxlength="50" required>
+            <input type="password" name="haslo" placeholder="Hasło" maxlength="50" required>
             <p>Nie masz jeszcze konta? <a href="rejestrowanie.php"><b>Załóż je!</b></a></p>
             <input type="submit" name="submitLoguj" value="Zaloguj"/>
         </form>

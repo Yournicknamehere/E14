@@ -66,7 +66,7 @@ function przekieruj(strona) {
 }
 
 function openNav() {
-    document.getElementById("mySidebar").style.width = "50%";
+    document.getElementById("mySidebar").style.width = "25%";
     document.getElementById("mySidebar").style.paddingLeft = "20px";
     document.getElementById("mySidebar").style.paddingRight = "20px";
 }
@@ -75,8 +75,4 @@ function closeNav() {
     document.getElementById("mySidebar").style.width = "0";
     document.getElementById("mySidebar").style.paddingLeft = "0";
     document.getElementById("mySidebar").style.paddingRight = "0";
-}
-
-function wyswietlTytul() {
-    document.getElementById("tytul").innerHTML = document.title;
 }

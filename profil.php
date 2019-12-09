@@ -21,17 +21,10 @@
             echo "<script> przekieruj('logowanie.php'); </script>";
         }
     ?>
-    <div class="header" id="header" onload="wyswietlTytul()">
-        <a href="<?php echo $_SERVER["PHP_SELF"]; ?>" class="logo"> <p id="tytul"></p> </a>
+    <div class="header" id="header">
+        <a href="<?php echo $_SERVER["PHP_SELF"]; ?>" class="logo">Profil</a>
         <div class="header-right">
-            <a class="active" href="profil.php">
-                <?php
-                    if(isset($_SESSION['userName']) && !empty($_SESSION['userName'])) { echo "Witaj, " .$_SESSION['userName'] ."!"; }
-                    else { echo "Witaj, Gość!"; } 
-                ?>
-            </a>
-
-            <a href="#sidebar" id="openNav" onclick="openNav()">☰ Menu</a>
+            <a href="#sidebar" id="openNav" class="openNav" onclick="openNav()">☰</a>
         </div>
     </div>
 
@@ -65,7 +58,7 @@
             <div class="column">
                 <div class="profil">
                     <div class="card">
-                        <img src="/img/img_avatar.png" alt="Avatar"   style="width:100%">
+                        <img src="/img/img_avatar.png" alt="Avatar">
                         <div class="container">
                             <h4><b><?php echo $_SESSION['userFirstName'] ." " .$_SESSION['userLastName']; ?></b></h4>
                             <p><?php echo $_SESSION['userAccountType']; ?></p>

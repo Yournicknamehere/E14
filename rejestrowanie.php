@@ -13,14 +13,7 @@
     <div class="header" id="header">
         <a href="<?php echo $_SERVER["PHP_SELF"]; ?>" class="logo">Rejestracja</a>
         <div class="header-right">
-            <a class="active" href="profil.php">
-                <?php
-                    if(isset($_SESSION['userName']) && !empty($_SESSION['userName'])) { echo "Witaj, " .$_SESSION['userName'] ."!"; }
-                    else { echo "Witaj, Gość!"; } 
-                ?>
-            </a>
-
-            <a href="#sidebar" id="openNav" onclick="openNav()">☰</a>
+            <a href="#sidebar" id="openNav" class="openNav" onclick="openNav()">☰</a>
         </div>
     </div>
 
