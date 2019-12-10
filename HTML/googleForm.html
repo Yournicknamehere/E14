@@ -1,159 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
-<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
-<title>CodePen - Google Material Design Input Boxes</title>
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
-<style>
-  * { box-sizing:border-box; }
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="image/x-icon"
+    href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+  <link rel="mask-icon" type=""
+    href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
+    color="#111" />
+  <title>CodePen - Google Material Design Input Boxes</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-/* basic stylings ------------------------------------------ */
-body 				 { background:url(https://scotch.io/wp-content/uploads/2014/07/61.jpg); }
-.container 		{ 
-  font-family:'Roboto';
-  width:600px; 
-  margin:30px auto 0; 
-  display:block; 
-  background:#FFF;
-  padding:10px 50px 50px;
-}
-h2 		 { 
-  text-align:center; 
-  margin-bottom:50px; 
-}
-h2 small { 
-  font-weight:normal; 
-  color:#888; 
-  display:block; 
-}
-.footer 	{ text-align:center; }
-.footer a  { color:#53B2C8; }
+    /* basic stylings ------------------------------------------ */
+    body {
+      background: url(https://scotch.io/wp-content/uploads/2014/07/61.jpg);
+    }
 
-/* form starting stylings ------------------------------- */
-.group 			  { 
-  position:relative; 
-  margin-bottom:45px; 
-}
-input 				{
-  font-size:18px;
-  padding:10px 10px 10px 5px;
-  display:block;
-  width:300px;
-  border:none;
-  border-bottom:1px solid #757575;
-}
-input:focus 		{ outline:none; }
+    .container {
+      font-family: 'Roboto';
+      width: 600px;
+      margin: 30px auto 0;
+      display: block;
+      background: #FFF;
+      padding: 10px 50px 50px;
+    }
 
-/* LABEL ======================================= */
-label 				 {
-  color:#999; 
-  font-size:18px;
-  font-weight:normal;
-  position:absolute;
-  pointer-events:none;
-  left:5px;
-  top:10px;
-  transition:0.2s ease all; 
-  -moz-transition:0.2s ease all; 
-  -webkit-transition:0.2s ease all;
-}
+    h2 {
+      text-align: center;
+      margin-bottom: 50px;
+    }
 
-/* active state */
-input:focus ~ label, input:valid ~ label 		{
-  top:-20px;
-  font-size:14px;
-  color:#5264AE;
-}
+    h2 small {
+      font-weight: normal;
+      color: #888;
+      display: block;
+    }
 
-/* BOTTOM BARS ================================= */
-.bar 	{ position:relative; display:block; width:300px; }
-.bar:before, .bar:after 	{
-  content:'';
-  height:2px; 
-  width:0;
-  bottom:1px; 
-  position:absolute;
-  background:#5264AE; 
-  transition:0.2s ease all; 
-  -moz-transition:0.2s ease all; 
-  -webkit-transition:0.2s ease all;
-}
-.bar:before {
-  left:50%;
-}
-.bar:after {
-  right:50%; 
-}
+    .footer {
+      text-align: center;
+    }
 
-/* active state */
-input:focus ~ .bar:before, input:focus ~ .bar:after {
-  width:50%;
-}
+    .footer a {
+      color: #53B2C8;
+    }
 
-/* HIGHLIGHTER ================================== */
-.highlight {
-  position:absolute;
-  height:60%; 
-  width:100px; 
-  top:25%; 
-  left:0;
-  pointer-events:none;
-  opacity:0.5;
-}
+    /* form starting stylings ------------------------------- */
+    .group {
+      position: relative;
+      margin-bottom: 45px;
+    }
 
-/* active state */
-input:focus ~ .highlight {
-  -webkit-animation:inputHighlighter 0.3s ease;
-  -moz-animation:inputHighlighter 0.3s ease;
-  animation:inputHighlighter 0.3s ease;
-}
+    input {
+      font-size: 18px;
+      padding: 10px 10px 10px 5px;
+      display: block;
+      width: 300px;
+      border: none;
+      border-bottom: 1px solid #757575;
+    }
 
-/* ANIMATIONS ================ */
-@-webkit-keyframes inputHighlighter {
-	from { background:#5264AE; }
-  to 	{ width:0; background:transparent; }
-}
-@-moz-keyframes inputHighlighter {
-	from { background:#5264AE; }
-  to 	{ width:0; background:transparent; }
-}
-@keyframes inputHighlighter {
-	from { background:#5264AE; }
-  to 	{ width:0; background:transparent; }
-}
-</style>
-<script>
-  window.console = window.console || function(t) {};
-</script>
-<script>
-  if (document.location.search.match(/type=embed/gi)) {
-    window.parent.postMessage("resize", "*");
-  }
-</script>
+    input:focus {
+      outline: none;
+    }
+
+    /* LABEL ======================================= */
+    label {
+      color: #999;
+      font-size: 18px;
+      font-weight: normal;
+      position: absolute;
+      pointer-events: none;
+      left: 5px;
+      top: 10px;
+      transition: 0.2s ease all;
+      -moz-transition: 0.2s ease all;
+      -webkit-transition: 0.2s ease all;
+    }
+
+    /* active state */
+    input:focus~label,
+    input:valid~label {
+      top: -20px;
+      font-size: 14px;
+      color: #5264AE;
+    }
+
+    /* BOTTOM BARS ================================= */
+    .bar {
+      position: relative;
+      display: block;
+      width: 300px;
+    }
+
+    .bar:before,
+    .bar:after {
+      content: '';
+      height: 2px;
+      width: 0;
+      bottom: 1px;
+      position: absolute;
+      background: #5264AE;
+      transition: 0.2s ease all;
+      -moz-transition: 0.2s ease all;
+      -webkit-transition: 0.2s ease all;
+    }
+
+    .bar:before {
+      left: 50%;
+    }
+
+    .bar:after {
+      right: 50%;
+    }
+
+    /* active state */
+    input:focus~.bar:before,
+    input:focus~.bar:after {
+      width: 50%;
+    }
+
+    /* HIGHLIGHTER ================================== */
+    .highlight {
+      position: absolute;
+      height: 60%;
+      width: 100px;
+      top: 25%;
+      left: 0;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    /* active state */
+    input:focus~.highlight {
+      -webkit-animation: inputHighlighter 0.3s ease;
+      -moz-animation: inputHighlighter 0.3s ease;
+      animation: inputHighlighter 0.3s ease;
+    }
+
+    /* ANIMATIONS ================ */
+    @-webkit-keyframes inputHighlighter {
+      from {
+        background: #5264AE;
+      }
+
+      to {
+        width: 0;
+        background: transparent;
+      }
+    }
+
+    @-moz-keyframes inputHighlighter {
+      from {
+        background: #5264AE;
+      }
+
+      to {
+        width: 0;
+        background: transparent;
+      }
+    }
+
+    @keyframes inputHighlighter {
+      from {
+        background: #5264AE;
+      }
+
+      to {
+        width: 0;
+        background: transparent;
+      }
+    }
+  </style>
+  <script>
+    window.console = window.console || function (t) { };
+  </script>
+  <script>
+    if (document.location.search.match(/type=embed/gi)) {
+      window.parent.postMessage("resize", "*");
+    }
+  </script>
 </head>
+
 <body translate="no">
-<div class="container">
-<h2>Google Material Design in CSS3<small>Inputs</small></h2>
-<form>
-<div class="group">
-<input type="text" required>
-<span class="highlight"></span>
-<span class="bar"></span>
-<label>Name</label>
-</div>
-<div class="group">
-<input type="text" required>
-<span class="highlight"></span>
-<span class="bar"></span>
-<label>Email</label>
-</div>
-</form>
-<p class="footer">
-a <a href="https://scotch.io/tutorials/css/google-material-design-input-boxes-in-css3" target="_blank">tutorial</a> by <a href="https://scotch.io" target="_blank">scotch.io</a>
-</p>
-</div>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <div class="container">
+    <h2>Google Material Design in CSS3<small>Inputs</small></h2>
+    <form>
+      <div class="group">
+        <input type="text" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Name</label>
+      </div>
+      <div class="group">
+        <input type="text" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Email</label>
+      </div>
+    </form>
+    <p class="footer">
+      a <a href="https://scotch.io/tutorials/css/google-material-design-input-boxes-in-css3"
+        target="_blank">tutorial</a> by <a href="https://scotch.io" target="_blank">scotch.io</a>
+    </p>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 </body>
+
 </html>

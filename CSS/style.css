@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap');
 * {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -14,23 +15,27 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-.login-form {
-    font-family: 'Montserrat', sans-serif;
-    width: 600px;
-    margin: 30px auto 0;
-    display: block;
-    background: #455a64;
-    padding: 10px 50px 50px;
-}
-
-.login-form h2 {
+.container { 
+    max-width: 800px; 
+    margin:30px auto 0; 
+    display:block; 
+    background: #263238;
+    padding:10px 50px 50px 50px;
     text-align: center;
-    margin-bottom: 50px;
 }
 
-.login-form h2 small {
-    font-weight: normal;
+.container h2 { 
+    text-align:center;
+    font-size: 40px;
+    margin-bottom: 50px;
+    line-height: 42px;
     color: #fafafa;
+}
+
+.container h2 small {
+    font-weight: normal;
+    font-size: 20px;
+    color: #c0b8b8ab;
     display: block;
 }
 
@@ -40,49 +45,91 @@ body {
 }
 
 .group input {
-    font-size: 18px;
+    font-size: 24px;
     padding: 10px 10px 10px 5px;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
     display: block;
-    width: 300px;
+    width: 70%;
     border: none;
-    border-bottom: 1px solid #757575;
+    border-bottom: 1px solid rgb(70, 100, 221);
+    color: #fafafa;
+    background: #263238;
 }
 
 .group input:focus { outline: none; }
 
 .group label {
-    color: #999;
-    font-size: 18px;
-    font-weight: normal;
+    color: #818181;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
     position: absolute;
     pointer-events: none;
     left: 5px;
     top: 10px;
-    transition: 0.2 ease all;
-    -moz-transition: 0.2 ease all;
-    -webkit-transition: 0.2 ease all;
+    transition: 0.4s ease all;
+    -moz-transition: 0.4s ease all;
+    -webkit-transition: 0.4s ease all;
 }
 
 .group input:focus ~ label, input:valid ~ label {
     top: -20px;
-    font-size: 14px;
-    color: #5264AE;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(70, 100, 221);
+    font-weight: 500;
 }
 
-.bar { position: relative; display: block; width: 300px; }
+.bar { position: relative; display: block; width: 70%; }
 .bar:before, .bar:after {
     content: '';
     height: 2px;
     width: 0;
     bottom: 1px;
     position: absolute;
-    background: #5264AE;
-    transition: 0.2 ease all;
-    -moz-transition: 0.2 ease all;
-    -webkit-transition: 0.2 ease all;
+    background: rgb(70, 100, 221);
+    transition: 0.4s ease all;
+    -moz-transition: 0.4s ease all;
+    -webkit-transition: 0.4s ease all;
 }
 .bar:before { left: 50%; }
 .bar:after { right: 50%; }
+
+.group input:focus ~ .bar:before, .group input:focus ~ .bar:after {
+    width: 50%;
+}
+
+.highlight {
+    position:absolute;
+    height:60%;
+    width: 0;
+    top:25%; 
+    left:0;
+    pointer-events:none;
+    opacity:0.5;
+}
+
+.group input:focus ~ .highlight {
+    -webkit-animation:inputHighlighter 0.4s ease;
+    -moz-animation:inputHighlighter 0.4s ease;
+    animation:inputHighlighter 0.4s ease;
+}
+
+@-webkit-keyframes inputHighlighter {
+	from { background:rgb(70, 100, 221); }
+  to 	{ width:0; background:transparent; }
+}
+
+@-moz-keyframes inputHighlighter {
+	from { background:rgb(70, 100, 221); }
+  to 	{ width:0; background:transparent; }
+}
+
+@keyframes inputHighlighter {
+	from { background:rgb(70, 100, 221); }
+  to 	{ width:0; background:transparent; }
+}
 
 .header {
     overflow: hidden;
@@ -91,7 +138,7 @@ body {
     transition: 0.5s;
     -moz-transition: 0.5s;
     -webkit-transition: 0.5s;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .header a {
@@ -125,8 +172,6 @@ body {
     float: right;
 }
 
-
-
 .info {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 40px;
@@ -144,9 +189,6 @@ body {
     font-size: 20px;
 }
 
-input {
-    font-family: 'Montserrat', sans-serif !important;
-}
 
 input:focus {
     outline: none;

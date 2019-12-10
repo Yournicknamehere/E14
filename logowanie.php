@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="/CSS/style.css">
     <script src="/JS/main.js"></script>
     <title>Logowanie</title>
+    <script>
+        window.console = window.console || function(t) {};
+    </script>
+    <script>
+        if (document.location.search.match(/type=embed/gi)) {
+            window.parent.postMessage("resize", "*");
+        }
+    </script>
 </head>
 <body>
     <div class="header" id="header">
@@ -42,14 +50,25 @@
     </div>
 
     <div class="content">
-        <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST" class="form">
-            <h1>Logowanie</h1>
-            <input type="text" name="login" placeholder="Login użytkownika" maxlength="50" required>
-              
-            <input type="password" name="haslo" placeholder="Hasło" maxlength="50" required>
-            <p>Nie masz jeszcze konta? <a href="rejestrowanie.php"><b>Załóż je!</b></a></p>
-            <input type="submit" name="submitLoguj" value="Zaloguj"/>
-        </form>
+        <div class="container">
+            <h2>Panel logowania<small>designed by Google</small></h2>
+            <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST">
+                <div class="group">
+                    <input type="text" name="login" maxlength="50" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Login</label>
+                </div>
+                <div class="group">
+                    <input type="password" name="haslo" maxlength="50" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Hasło</label>
+                </div>
+                <p>Nie masz jeszcze konta? <a href="rejestrowanie.php"><b>Załóż je!</b></a></p>
+                <input type="submit" name="submitLoguj" value="Zaloguj"/>
+            </form>
+        </div>
         
         <?php
             if(isset($_POST['submitLoguj'])){
