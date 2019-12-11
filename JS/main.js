@@ -66,12 +66,16 @@ function przekieruj(strona) {
 }
 
 function openNav() {
-    document.getElementById("mySidebar").style.width = "25%";
+    var width = window.innerWidth;
+    document.getElementById("mySidebar").style.visibility = "visible";
+    if(width < 780) { document.getElementById("mySidebar").style.width = "45%"; } 
+    else { document.getElementById("mySidebar").style.width = "25%"; }
     document.getElementById("mySidebar").style.paddingLeft = "20px";
     document.getElementById("mySidebar").style.paddingRight = "20px";
 }
 
 function closeNav() {
+    document.getElementById("mySidebar").style.visibility = "hidden";
     document.getElementById("mySidebar").style.width = "0";
     document.getElementById("mySidebar").style.paddingLeft = "0";
     document.getElementById("mySidebar").style.paddingRight = "0";

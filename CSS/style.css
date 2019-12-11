@@ -70,7 +70,7 @@ body {
     display: block;
     width: 70%;
     border: none;
-    border-bottom: 1px solid rgb(70, 100, 221);
+    border-bottom: 1px solid rgb(31, 112, 235);
     color: #fafafa;
     background: #263238;
 }
@@ -106,7 +106,7 @@ body {
     width: 0;
     bottom: 1px;
     position: absolute;
-    background: rgb(70, 100, 221);
+    background: rgb(31, 112, 235);
     transition: 0.4s ease all;
     -moz-transition: 0.4s ease all;
     -webkit-transition: 0.4s ease all;
@@ -135,17 +135,17 @@ body {
 }
 
 @-webkit-keyframes inputHighlighter {
-	from { background:rgb(70, 100, 221); }
+	from { background:rgb(31, 112, 235); }
   to 	{ width:0; background:transparent; }
 }
 
 @-moz-keyframes inputHighlighter {
-	from { background:rgb(70, 100, 221); }
+	from { background:rgb(31, 112, 235); }
   to 	{ width:0; background:transparent; }
 }
 
 @keyframes inputHighlighter {
-	from { background:rgb(70, 100, 221); }
+	from { background:rgb(31, 112, 235); }
   to 	{ width:0; background:transparent; }
 }
 
@@ -156,7 +156,6 @@ body {
     transition: 0.5s;
     -moz-transition: 0.5s;
     -webkit-transition: 0.5s;
-    font-family: 'Roboto', sans-serif;
 }
 
 .header a {
@@ -173,7 +172,6 @@ body {
 
 .header a.logo {
     font-size: 40px;
-    font-weight: bold;
     text-align: center;
 }
 
@@ -184,7 +182,7 @@ body {
     padding: 10px 24px 10px 24px;
 }
 
-.header a.openNav:hover { background-color: #000000c9; }
+.header a.openNav:hover { background-color: rgb(70, 100, 221); }
 
 .header-right {
     float: right;
@@ -465,6 +463,10 @@ select:focus {
     color: rgb(31, 112, 235);
 }
 
+#mySidebar {
+    visibility: hidden;
+}
+
 .sidebar {
     width: 0;
     position: fixed;
@@ -482,6 +484,7 @@ select:focus {
 }
 
 .sidebar a {
+    /* visibility: hidden; */
     margin-top: 5px;
     padding-bottom: 5px;
     text-decoration: none;
@@ -490,9 +493,9 @@ select:focus {
     letter-spacing: 0.049em;
     color: #ddd;
     display: block;
-    transition: 0.3s;
-    -moz-transition: 0.3s;
-    -webkit-transition: 0.3s;
+    transition: 0.2s ease-in-out all;
+    -moz-transition: 0.2s ease-in-out all;
+    -webkit-transition: 0.2s ease-in-out all;
 }
 
 .sidebar a:hover {
@@ -503,6 +506,7 @@ select:focus {
     padding: 0;
     font-family: 'Roboto', sans-serif !important;
     font-size: 50px;
+    font-weight: 600;
     letter-spacing: 0.04em;
     line-height: 21px;
     color: #818181;
@@ -559,7 +563,7 @@ select:focus {
         padding-bottom: 5px;
         text-decoration: none;
         font-size: 20px;
-        color: #818181;
+        color: #ddd;
         display: block;
         transition: 0.5s;
         -moz-transition: 0.5s;
@@ -624,5 +628,97 @@ select:focus {
         margin-top: 35px;
         font-size: 18px;
         line-height: 29.12px;
+    }
+
+    .container { 
+        max-width: 760px; 
+        margin: 10px 30px 10px 30px;
+        display:block; 
+        background: #263238;
+        padding:10px 50px 50px 50px;
+        text-align: center;
+        border-radius: 6px;
+    }
+    
+    .container h2 { 
+        text-align:center;
+        font-size: 40px;
+        margin-bottom: 35px;
+        line-height: 45px;
+        color: #fafafa;
+    }
+    
+    .container h2 small {
+        font-weight: normal;
+        font-size: 20px;
+        color: #c0b8b8ab;
+        display: block;
+    }
+
+    .container p {
+        font-weight: 400;
+    }
+    
+    .container input[type="submit"] {
+        border: none;
+        background: rgb(70, 100, 221);
+        color: white;
+        padding: 16px 32px 16px 32px;
+        width: 90%;
+        font-size: 16pt;
+        letter-spacing: 0.049em;
+        text-align: center;
+        border-radius: 6px;
+        margin-top: 30px;
+        transition: 0.3s;
+        -moz-transition: 0.3s;
+        -webkit-transition: 0.3s;
+    }
+    
+    .container input[type="submit"]:hover {
+        padding: 16px 40px 16px 40px;
+    }
+    
+    .group {
+        position: relative;
+        margin-bottom: 45px;
+    }
+    
+    .group input {
+        font-size: 24px;
+        padding: 10px 10px 10px 5px;
+        font-weight: 500;
+        font-family: 'Montserrat', sans-serif;
+        display: block;
+        width: 70%;
+        border: none;
+        border-bottom: 1px solid rgb(70, 100, 221);
+        color: #fafafa;
+        background: #263238;
+    }
+    
+    .group input:focus { outline: none; }
+    
+    .group label {
+        color: #818181;
+        font-size: 20px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        position: absolute;
+        pointer-events: none;
+        left: 5px;
+        top: 10px;
+        transition: 0.4s ease all;
+        -moz-transition: 0.4s ease all;
+        -webkit-transition: 0.4s ease all;
+    }
+    
+    .group input:focus ~ label, input:valid ~ label {
+        top: -20px;
+        font-size: 16px;
+        font-family: 'Montserrat', sans-serif;
+        color: rgb(70, 100, 221);
+        font-weight: 500;
+        letter-spacing: 0.049em;
     }
 }
