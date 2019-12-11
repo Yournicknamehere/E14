@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" charset="utf-8">
     <link rel="stylesheet" href="/CSS/style.css">
     <script src="/JS/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -59,7 +59,7 @@
                 <div class="profil">
                     <div class="card">
                         <img src="/img/img_avatar.png" alt="Avatar">
-                        <div class="container">
+                        <div class="card-Container">
                             <h4><b><?php echo $_SESSION['userFirstName'] ." " .$_SESSION['userLastName']; ?></b></h4>
                             <p><?php echo $_SESSION['userAccountType']; ?></p>
                         </div>
