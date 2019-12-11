@@ -42,42 +42,53 @@
     </div>
 
     <div class="content">
-        <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST" class="form">
-            <h1>Rejestracja</h1>
-            <ul>
-                <li>
-                    <label for="login">Login</label>
+        <div class="container">
+            <h2>Rejestracja użytkownika<small>designed by Google</small></h2>
+            <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST" class="form">
+                <div class="group">
                     <input type="text" name="login" maxlength="50" required autofocus>
-                </li>
-                <li>
-                    <label for="imie">Imię</label>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Login</label>
+                </div>
+                <div class="group">
                     <input type="text" name="imie" maxlength="50" required>
-                </li>
-                <li>
-                    <label for="nazwisko">Nazwisko</label>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Imię</label>
+                </div>
+                <div class="group">
                     <input type="text" name="nazwisko" maxlength="50" required>
-                </li>
-                <li>
-                    <label for="email">E-mail</label>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Nazwisko</label>
+                </div>
+                <div class="group">
                     <input type="email" name="email" maxlength="50" required>
-                </li>
-                <li>
-                    <label for="haslo1">Hasło</label>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>E-mail</label>
+                </div>
+                <div class="group">
                     <input type="password" name="haslo1" maxlength="50" required>
-                </li>
-                <li>
-                    <label for="haslo2">Powtór hasło</label>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Hasło</label>
+                </div>
+                <div class="group">
                     <input type="password" name="haslo2" maxlength="50" required>
-                </li>
-                <select name="stanowisko">
-                    <option value="Uzytkownik">Użytkownik</option>
-                    <option value="Administrator">Administrator</option>
-                </select>
-                <li>
-                    <input type="submit" name="submitRejestracja" value="Dalej"/>
-                </li>
-            </ul>
-        </form>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Powtórz hasło</label>
+                </div>
+                Użytkownik
+                <input type="radio" name="stanowisko" value="Uzytkownik"/>
+                Administrator
+                <input type="radio" name="stanowisko" value="Administrator"/><br>
+
+                <input type="submit" name="submitRejestracja" value="Dalej"/>
+            </form>
+        </div>
 
         <?php
             $connection = new mysqli('localhost', 'root', '', 'cd4ti');

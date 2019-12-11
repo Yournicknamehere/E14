@@ -39,6 +39,24 @@ body {
     display: block;
 }
 
+.container input[type="submit"] {
+    border: none;
+    background: rgb(70, 100, 221);
+    color: white;
+    padding: 16px 32px 16px 32px;
+    font-size: 16pt;
+    text-align: center;
+    border-radius: 4px;
+    margin-top: 30px;
+    transition: 0.3s;
+    -moz-transition: 0.3s;
+    -webkit-transition: 0.3s;
+}
+
+.container input[type="submit"]:hover {
+    padding: 16px 40px 16px 40px;
+}
+
 .group {
     position: relative;
     margin-bottom: 45px;
@@ -483,10 +501,11 @@ select:focus {
 
 .sidebar p {
     padding: 0;
+    font-family: 'Roboto', sans-serif !important;
     font-size: 50px;
     letter-spacing: 0.04em;
     line-height: 21px;
-    color: #fafafa;
+    color: #818181;
     text-align: center;
 }
 
