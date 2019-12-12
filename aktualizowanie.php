@@ -17,11 +17,7 @@
 <body style="font-size: 16px;">
 
     <!-- Przekierowuje niezalogowanego użytkownika do strony logowania -->
-    <?php
-        if(!isset($_SESSION['userName']) || empty($_SESSION['userName'])){
-            echo "<script> przekieruj('logowanie.php'); </script>";
-        }
-    ?>
+    <?php chceck_user(); ?>
 
     <div class="header" id="header">
         <?php include '/xampp/htdocs/E14/modules/header.php'; ?>
@@ -88,7 +84,7 @@
             }
         ?>
         <!-- Cofnięcie do poprzedniej strony używając PHP -->
-        <button class="formInputBtn" id="confnijBtn"><a href ="profil.php">Cofnij</a></button>
+        <button class="formInputBtn" id="confnijBtn"><a href ="<?php echo $_SERVER['HTTP_REFERER'];?>">Cofnij</a></button>
     </div>
         
 </body>

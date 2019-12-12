@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php
+    session_start();
+    require '/xampp/htdocs/E14/funkcje.php';
+    $db = Database::getInstance();
+    $cnx = $db->getConnection();
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -11,33 +16,13 @@
 </head>
 <body>
     <div class="header" id="header">
-        <a href="<?php echo $_SERVER["PHP_SELF"]; ?>" class="logo">Rejestracja</a>
-        <div class="header-right">
-            <a href="#sidebar" id="openNav" class="openNav" onclick="openNav()">☰</a>
-        </div>
+        <?php include '/xampp/htdocs/E14/modules/header.php'; ?>
     </div>
 
     <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <p>Menu</p>
         <?php
-            if(isset($_SESSION['userAccountType']) && $_SESSION['userAccountType'] === "Administrator"){
-                echo "<a href='aktualizowanie.php'>Aktualizacja danych</a>";
-                echo "<a href='dodawanie.php'>Dodawanie klientów</a>";
-                echo "<a href='usuwanie.php'>Usuwanie klientów</a>";
-                echo "<a href='wyswietlDescribe.php'>Struktura tabel</a>";
-                echo "<a href='wyswietlTabela.php'>Lista klientów</a>";
-                echo "<a href='zegarek.php'>Zegar</a>";
-                echo "<a href='zmianaStylu.php'>Edycja CSS</a>";
-            } elseif(isset($_SESSION['userAccountType']) && $_SESSION['userAccountType'] === "Uzytkownik"){
-                echo "<a href='wyswietlDescribe.php'>Struktura tabel</a>";
-                echo "<a href='wyswietlTabela.php'>Lista klientów</a>";
-                echo "<a href='zegarek.php'>Zegar</a>";
-                echo "<a href='zmianaStylu.php'>Edycja CSS</a>";
-            } else {
-                echo "<a href='logowanie.php'>Zaloguj</a>";
-                echo "<a href='rejestrowanie.php'>Rejestracja</a>";
-            }
+            include '/xampp/htdocs/E14/modules/header.php';
+            write_sidebar_positions();
         ?>
     </div>
 
@@ -91,11 +76,6 @@
         </div>
 
         <?php
-            $connection = new mysqli('localhost', 'root', '', 'cd4ti');
-            if ($connection->connect_error) {
-                die("Błąd połączenia: " .$connection->connect_error);
-            }
-
             if(isset($_POST['submitRejestracja'])){
                 $login = trim($_POST['login']);
                 $imie = trim($_POST['imie']);
@@ -115,20 +95,20 @@
                         $sql = "INSERT INTO uzytkownicy (login, imie, nazwisko, email, haslo, stanowisko) 
                         VALUES ('$login', '$imie', '$nazwisko', '$email', '$haslo', '$stanowisko');";
                         
-                        if($connection->query($sql) === true){
+                        if($cnx->query($sql) === true){
                             echo "<script> alert('Pomyślnie dodano użytkownika: $login'); </script>";
                             echo "<script> przekieruj('logowanie.php'); </script>";
                         }
-                        else { echo "<script> alert('ERROR: $connection->error'); </script>"; }
+                        else { echo "<script> alert('ERROR: $cnx->error'); </script>"; }
                     }
                 }
                 $sql = $haslo = $haslo1 = $haslo2 = $login = $stanowisko = $imie = $nazwisko = $email = "";
             }
 
-            $connection->close();
+            $cnx->close();
         ?>
         <!-- Cofnięcie do poprzedniej strony używając PHP -->
-        <button class="formInputBtn" id="confnijBtn"><a href ="logowanie.php">Cofnij</a></button>
+        <button class="formInputBtn" id="confnijBtn"><a href ="<?php echo $_SERVER["HTTP_REFERER"]; ?>">Cofnij</a></button>
     </div>
     
 </body>

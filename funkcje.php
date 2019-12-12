@@ -25,6 +25,11 @@
         }
     }
 
+    function write_element($title) {
+        include "/xampp/htdocs/E14/modules/$title";
+        
+    }
+
     class Database {
         private $_connection;
         private static $_instance;

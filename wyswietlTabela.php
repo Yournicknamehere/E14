@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php
+    session_start();
+    require '/xampp/htdocs/E14/funkcje.php';
+    $db = Database::getInstance();
+    $cnx = $db->getConnection();
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -10,34 +15,16 @@
     <title>Klienci</title>
 </head>
 <body>
+    <?php chceck_user(); ?>
+    <?php echo $_SERVER["PHP_SELF"]; ?>
     <div class="header" id="header">
-        <a href="<?php echo $_SERVER["PHP_SELF"]; ?>" class="logo">Lista klientów</a>
-        <div class="header-right">
-            <a href="#sidebar" id="openNav" class="openNav" onclick="openNav()">☰</a>
-        </div>
+        <?php write_element('header.php') ?>
     </div>
 
     <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <p>Menu</p>
         <?php
-            if($_SESSION['userAccountType'] === "Administrator"){
-                echo "<a href='aktualizowanie.php'>Aktualizacja danych</a>";
-                echo "<a href='dodawanie.php'>Dodawanie klientów</a>";
-                echo "<a href='usuwanie.php'>Usuwanie klientów</a>";
-                echo "<a href='wyswietlDescribe.php'>Struktura tabel</a>";
-                echo "<a href='wyswietlTabela.php'>Lista klientów</a>";
-                echo "<a href='zegarek.php'>Zegar</a>";
-                echo "<a href='zmianaStylu.php'>Edycja CSS</a>";
-            } elseif($_SESSION['userAccountType'] === "Uzytkownik"){
-                echo "<a href='wyswietlDescribe.php'>Struktura tabel</a>";
-                echo "<a href='wyswietlTabela.php'>Lista klientów</a>";
-                echo "<a href='zegarek.php'>Zegar</a>";
-                echo "<a href='zmianaStylu.php'>Edycja CSS</a>";
-            } else {
-                echo "<a href='logowanie.php'>Zaloguj</a>";
-                echo "<a href='rejestrowanie.php'>Rejestracja</a>";
-            }
+          include '/xampp/htdocs/E14/modules/sidebar.php';
+          write_sidebar_positions();
         ?>
     </div>
 
@@ -62,10 +49,6 @@
        <?php
 
             if(isset($_POST["submitTabela"])){
-                //Tworzy połączenie z bazą danych
-                $connection = new mysqli('localhost', 'root', '', 'cd4ti');
-                if ($connection->connect_error){ die("Błąd połączenia: " . $connection->connect_error); }
-
                 //Pobiera dane z formularza
                 $wedlug = $_POST["wedlug"];
                 $kolejnosc = $_POST["kolejnosc"];
@@ -74,7 +57,7 @@
                 $sql = "SELECT nazwa, adres, miasto, kraj FROM klienci ORDER BY " .$_POST['wedlug'] ." " .$_POST['kolejnosc'] .";";
                 
                 //Wysyła zapytanie do bazy i zapisuje wynik do zmiennej $result
-                $result = $connection->query($sql);
+                $result = $cnx->query($sql);
 
                 //Tworzy tabelę HTML oraz tablicę asocjacyjną '$tab'
                 echo "<table id='tabela'>";
@@ -88,7 +71,7 @@
                 $result->free();
 
                 //Zamyka połączenie z bazą danych
-                $connection->close();
+                $cnx->close();
             }
         ?>
         <!-- Cofnięcie do poprzedniej strony używając PHP -->

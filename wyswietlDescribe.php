@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php
+    session_start();
+    require '/xampp/htdocs/E14/funkcje.php';
+    $db = Database::getInstance();
+    $cnx = $db->getConnection();
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -10,39 +15,16 @@
     <title>Struktura tabeli</title>
 </head>
 <body>
-    <!-- Tworzy połączenie z bazą danych -->
-    <?php
-        $connection = new mysqli('localhost', 'root', '', 'cd4ti');
-        if($connection->connect_error) { die("Błąd połączenia: " .$connection->connect_error); }
-    ?>
+    <?php chceck_user(); ?>
+
     <div class="header" id="header">
-        <a href="<?php echo $_SERVER["PHP_SELF"]; ?>" class="logo">Struktura tabeli</a>
-        <div class="header-right">
-            <a href="#sidebar" id="openNav" class="openNav" onclick="openNav()">☰</a>
-        </div>
+        <?php include '/xampp/htdocs/E14/modules/header.php'; ?>
     </div>
 
     <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <p>Menu</p>
         <?php
-            if($_SESSION['userAccountType'] === "Administrator"){
-                echo "<a href='aktualizowanie.php'>Aktualizacja danych</a>";
-                echo "<a href='dodawanie.php'>Dodawanie klientów</a>";
-                echo "<a href='usuwanie.php'>Usuwanie klientów</a>";
-                echo "<a href='wyswietlDescribe.php'>Struktura tabel</a>";
-                echo "<a href='wyswietlTabela.php'>Lista klientów</a>";
-                echo "<a href='zegarek.php'>Zegar</a>";
-                echo "<a href='zmianaStylu.php'>Edycja CSS</a>";
-            } elseif($_SESSION['userAccountType'] === "Uzytkownik"){
-                echo "<a href='wyswietlDescribe.php'>Struktura tabel</a>";
-                echo "<a href='wyswietlTabela.php'>Lista klientów</a>";
-                echo "<a href='zegarek.php'>Zegar</a>";
-                echo "<a href='zmianaStylu.php'>Edycja CSS</a>";
-            } else {
-                echo "<a href='logowanie.php'>Zaloguj</a>";
-                echo "<a href='rejestrowanie.php'>Rejestracja</a>";
-            }
+          include '/xampp/htdocs/E14/modules/sidebar.php';
+          write_sidebar_positions();
         ?>
     </div>
 
@@ -51,7 +33,7 @@
         <form method="POST" action="<?php echo $_SERVER["PHP_SELF"];?>">
             <?php
                 $sql = "SHOW tables;";
-                $result = $connection->query($sql);
+                $result = $cnx->query($sql);
                 echo "<select name='jakaTabela'>";
                 while($obj = $result->fetch_object()){
                     echo "<option>" .$obj->Tables_in_cd4ti ."</option>";
@@ -68,7 +50,7 @@
                 //Wyświetla strukturę tabeli wybranej w powyższym formularzu
                 $tabela = $_POST['jakaTabela'];
                 $sql = "DESCRIBE $tabela;";
-                $result = $connection->query($sql);
+                $result = $cnx->query($sql);
 
                 echo "<table id='tabela'>";
                 echo "<tr> <th>Field</th>  <th>Type</th> </tr>";
@@ -80,10 +62,10 @@
 
             //Czyści pamieć i zamyka połączenie z bazą danych
             $result->free();
-            $connection->close();
+            $cnx->close();
         ?>
         <!-- Cofnięcie do poprzedniej strony -->
-        <button class="formInputBtn" id="confnijBtn"><a href ="index.php">Cofnij</a></button>
+        <button class="formInputBtn" id="confnijBtn"><a href ="<?php echo $_SERVER["HTTP_REFERER"]; ?>">Cofnij</a></button>
     </div>
     </div>
 </body>

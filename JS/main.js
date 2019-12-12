@@ -68,7 +68,9 @@ function przekieruj(strona) {
 function openNav() {
     var width = window.innerWidth;
     document.getElementById("mySidebar").style.visibility = "visible";
-    if(width < 780) { document.getElementById("mySidebar").style.width = "45%"; } 
+    if(width < 681) { document.getElementById("mySidebar").style.width = "45%"; }
+    else if(width < 1031) { document.getElementById("mySidebar").style.width = "35%"; }
+    else if(width < 1281) { document.getElementById("mySidebar").style.width = "35%"; }
     else { document.getElementById("mySidebar").style.width = "25%"; }
     document.getElementById("mySidebar").style.paddingLeft = "20px";
     document.getElementById("mySidebar").style.paddingRight = "20px";
