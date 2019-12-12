@@ -1,8 +1,7 @@
 <?php
     session_start();
-    require '/xampp/htdocs/E14/funkcje.php';
-    $db = Database::getInstance();
-    $cnx = $db->getConnection();
+    include '/xampp/htdocs/E14/funkcje.php';
+    $connection = new mysqli('localhost', 'root', '', 'cd4ti');
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -64,7 +63,7 @@
                 $hasloFormularz = md5($hasloFormularz, FALSE);
                 $sql = "SELECT login, imie, nazwisko, email, haslo, stanowisko FROM uzytkownicy WHERE login = '$loginFormularz';";
             
-                $result = $cnx->query($sql);
+                $result = $connection->query($sql);
             
                 $obj = $result->fetch_object();
                 $loginUzytkownika = $obj->login;
@@ -87,6 +86,6 @@
         ?>
     </div>
     
-    <?php $cnx->close(); ?>
+    <?php $connection->close(); ?>
 </body>
 </html>

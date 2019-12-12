@@ -1,7 +1,9 @@
-<?php session_start();
-    $taStrona = $_SERVER["PHP_SELF"];
-    echo "<script> alert('$taStrona'); </script>";
-?>
+<?php 
+    session_start();
+    require '/xampp/htdocs/E14/funkcje.php';
+    $db = Database::getInstance();
+    $cnx = $db->getConnection();
+ ?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -22,48 +24,24 @@
     ?>
 
     <div class="header" id="header">
-        <a href="<?php echo $_SERVER["PHP_SELF"]; ?>" class="logo">Aktualizowanie</a>
-        <div class="header-right">
-            <a href="#sidebar" id="openNav" class="openNav" onclick="openNav()">☰</a>
-        </div>
+        <?php include '/xampp/htdocs/E14/modules/header.php'; ?>
+    </div>
+    
     </div>
 
     <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <p>Menu</p>
-        <?php
-            if($_SESSION['userAccountType'] === "Administrator"){
-                echo "<a href='aktualizowanie.php'>Aktualizacja danych</a>";
-                echo "<a href='dodawanie.php'>Dodawanie klientów</a>";
-                echo "<a href='usuwanie.php'>Usuwanie klientów</a>";
-                echo "<a href='wyswietlDescribe.php'>Struktura tabel</a>";
-                echo "<a href='wyswietlTabela.php'>Lista klientów</a>";
-                echo "<a href='zegarek.php'>Zegar</a>";
-                echo "<a href='zmianaStylu.php'>Edycja CSS</a>";
-            } elseif($_SESSION['userAccountType'] === "Uzytkownik"){
-                echo "<a href='wyswietlDescribe.php'>Struktura tabel</a>";
-                echo "<a href='wyswietlTabela.php'>Lista klientów</a>";
-                echo "<a href='zegarek.php'>Zegar</a>";
-                echo "<a href='zmianaStylu.php'>Edycja CSS</a>";
-            } else {
-                echo "<a href='logowanie.php'>Zaloguj</a>";
-                echo "<a href='rejestrowanie.php'>Rejestracja</a>";
-            }
+        <?php 
+            include '/xampp/htdocs/E14/modules/sidebar.php';
+            write_sidebar_positions();
         ?>
     </div>
 
     <div class="content">
-       <?php
-            //Tworzy połączenie z bazą danych
-            $connection = new mysqli('localhost', 'root', '', 'cd4ti');
-            if ($connection->connect_error){ die("Błąd połączenia: " . $connection->connect_error ."<br>"); }
-        ?>
-           
         <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST">
             Wybierz klienta, którego dane chcesz zmienić<br>
             <?php
                 //Zapisuje do zmiennej '$z' wynik zapytania SQL do bazy danych
-                $result = $connection->query("SELECT nazwa FROM klienci;");
+                $result = $cnx->query("SELECT nazwa FROM klienci;");
 
                 //Tworzy listę rozwijaną <select> w HTML używając tablicy asocjacyjnej $r i pętli while()
                 echo "<select name='jakiKlient'>"; //Otwiera znacznik <select>...
@@ -102,11 +80,11 @@
                     }else{
                         $sql = "UPDATE klienci SET $jakieDane = '$noweDane' WHERE nazwa = '$klient';";
     
-                        if($connection->query($sql) === true) { echo "<script> alert('Pomyślnie zaktualizowano dane: $klient'); </script>"; }
-                        else { echo "ERROR: " .$sql ."<br>" .$connection->error; }
+                        if($cnx->query($sql) === true) { echo "<script> alert('Pomyślnie zaktualizowano dane: $klient'); </script>"; }
+                        else { echo "ERROR: " .$sql ."<br>" .$cnx->error; }
                     }
                 }else { echo "<script> alert('Tylko administrator może aktualizować dane użytkowników!'); </script>"; }
-                $connection->close();
+                $cnx->close();
             }
         ?>
         <!-- Cofnięcie do poprzedniej strony używając PHP -->
