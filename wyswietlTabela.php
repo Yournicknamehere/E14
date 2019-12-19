@@ -16,7 +16,6 @@
 </head>
 <body>
     <?php chceck_user(); ?>
-    <?php echo $_SERVER["PHP_SELF"]; ?>
     <div class="header" id="header">
         <?php write_element('header.php') ?>
     </div>

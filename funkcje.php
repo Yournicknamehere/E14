@@ -1,6 +1,6 @@
 <?php
     function write_sidebar_positions() {
-        if($_SESSION['userAccountType'] === "Administrator"){
+        if(isset($_SESSION['userAccountType']) && $_SESSION['userAccountType'] === "Administrator"){
             echo "<a href='aktualizowanie.php'>Aktualizacja danych</a>";
             echo "<a href='dodawanie.php'>Dodawanie klientów</a>";
             echo "<a href='usuwanie.php'>Usuwanie klientów</a>";
@@ -8,7 +8,7 @@
             echo "<a href='wyswietlTabela.php'>Lista klientów</a>";
             echo "<a href='zegarek.php'>Zegar</a>";
             echo "<a href='zmianaStylu.php'>Edycja CSS</a>";
-        } elseif($_SESSION['userAccountType'] === "Uzytkownik"){
+        } elseif(isset($_SESSION['userAccountType']) && $_SESSION['userAccountType'] === "Uzytkownik"){
             echo "<a href='wyswietlDescribe.php'>Struktura tabel</a>";
             echo "<a href='wyswietlTabela.php'>Lista klientów</a>";
             echo "<a href='zegarek.php'>Zegar</a>";
@@ -26,6 +26,7 @@
     }
 
     function write_element($title) {
+        $title = stripslashes($title);
         include "/xampp/htdocs/E14/modules/$title";
         
     }
