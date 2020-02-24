@@ -43,6 +43,7 @@ body {
     border: none;
     background: rgb(70, 100, 221);
     color: white;
+    width: 30%;
     padding: 16px 32px 16px 32px;
     font-size: 16pt;
     text-align: center;
@@ -67,6 +68,8 @@ body {
     padding: 10px 10px 10px 5px;
     font-weight: 500;
     font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 500;
     display: block;
     width: 70%;
     border: none;

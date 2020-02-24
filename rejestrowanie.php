@@ -13,6 +13,14 @@
     <link rel="stylesheet" href="/CSS/style.css">
     <script src="/JS/main.js"></script>
     <title>Rejestracja</title>
+    <script>
+        window.console = window.console || function(t) {};
+    </script>
+    <script>
+        if (document.location.search.match(/type=embed/gi)) {
+            window.parent.postMessage("resize", "*");
+        }
+    </script>
 </head>
 <body>
     <div class="header" id="header">
@@ -29,7 +37,7 @@
     <div class="content">
         <div class="container">
             <h2>Rejestracja użytkownika<small>designed by Google</small></h2>
-            <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST" class="form">
+            <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST"> <!-- class="form" -->
                 <div class="group">
                     <input type="text" name="login" maxlength="50" required autofocus>
                     <span class="highlight"></span>
@@ -108,7 +116,7 @@
             $cnx->close();
         ?>
         <!-- Cofnięcie do poprzedniej strony używając PHP -->
-        <button class="formInputBtn" id="confnijBtn"><a href ="<?php echo $_SERVER["HTTP_REFERER"]; ?>">Cofnij</a></button>
+        <br><button class="formInputBtn" id="confnijBtn"><a href ="<?php echo $_SERVER["HTTP_REFERER"]; ?>">Cofnij</a></button>
     </div>
     
 </body>
